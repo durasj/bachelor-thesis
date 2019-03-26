@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = ""
 languageCode = "en-us"
 title = "Jakub Duras Bachelor Thesis"
 theme = "hugo-xmin"
@@ -10,11 +10,11 @@ footnotereturnlinkcontents = "↩"
 
 [[menu.main]]
     name = "Home"
-    url = "/"
+    url = "./"
     weight = 1
 [[menu.main]]
     name = "Draft"
-    url = "/draft/"
+    url = "./draft"
     weight = 2
 
 [params]
