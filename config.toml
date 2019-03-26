@@ -1,0 +1,22 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Jakub Duras Bachelor Thesis"
+theme = "hugo-xmin"
+footnotereturnlinkcontents = "↩"
+
+[permalinks]
+    post = "/post/:year/:month/:day/:slug/"
+    note = "/note/:year/:month/:day/:slug/"
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+[[menu.main]]
+    name = "Draft"
+    url = "/draft/"
+    weight = 2
+
+[params]
+    description = "A website built through Hugo."
+    footer = "&copy; [Jakub Duras](https://duras.me) 2019 | [Github](https://github.com/durasj)"
