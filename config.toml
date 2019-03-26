@@ -1,4 +1,4 @@
-baseURL = ""
+baseURL = "https://thesis.science.upjs.sk/~jduras/"
 languageCode = "en-us"
 title = "Jakub Duras Bachelor Thesis"
 theme = "hugo-xmin"
