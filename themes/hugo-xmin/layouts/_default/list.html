@@ -1,18 +1,18 @@
 {{ partial "header.html" . }}
+<div class="article-meta">
+<h1><span class="title">{{ .Title | markdownify }}</span></h1>
+{{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
+{{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
+</div>
 
-{{if not .IsHome }}
-<h1>{{ .Title | markdownify }}</h1>
-{{ end }}
-
+<main>
 {{ .Content }}
+</main>
 
-<ul>
-  {{ range (where .Data.Pages "Section" "!=" "") }}
-  <li>
-    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
-    <a href="{{ .URL }}">{{ .Title | markdownify }}</a>
-  </li>
-  {{ end }}
-</ul>
+{{ range .Pages }}
+<a href="{{ .URL }}"><h2>{{ .Title | markdownify }}</h2></a>
+<span class="date">Published {{ .Date.Format "2006/01/02" }}</span>
+<p>{{ .Summary }}</p>
+{{ end }}
 
 {{ partial "footer.html" . }}

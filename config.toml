@@ -13,9 +13,13 @@ footnotereturnlinkcontents = "↩"
     url = "./"
     weight = 1
 [[menu.main]]
+    name = "Posts"
+    url = "./posts"
+    weight = 2
+[[menu.main]]
     name = "Draft"
     url = "./draft"
-    weight = 2
+    weight = 3
 
 [params]
     description = "A website built through Hugo."
