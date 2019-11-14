@@ -12,10 +12,10 @@ The current draft as PDF can be found in [Draft subpage](https://thesis.science.
 
 ### Proof of concept, legal issues
 
-11.11.2019
+11.11.2019 - presentation [[online](https://docs.google.com/presentation/d/1yfN5PhdW0Dvy1nDkWu9FjlYhCFPGMWimaEMZNvhu_L0/edit?usp=sharing)] [[PDF](presentation-1.pdf)] [[PPTX](presentation-1.pptx)] 
 
 - Repositories with the software set up (including CI).
 - Software requirements - [Requirements](https://github.com/durasj/octosign/wiki/Requirements).
 - Architecture with [Backend specification](https://github.com/durasj/octosign/wiki/Backend-specification).
 - Working Proof of Concept Octosign UI and naive DSS backend (only PAdES on Windows).
-- Exploration and discussion around the use of the certificates on the EU ID cards and bundled PKCS#11 DLLs.
+- Exploration and discussion around the legal implications when using the certificates on the EU ID cards and bundled PKCS#11 DLLs.
