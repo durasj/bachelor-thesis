@@ -16,7 +16,8 @@ jobs:
     - name: Compile LaTeX thesis
       uses: xu-cheng/latex-action@master
       with:
-        root_file: paper/main.tex
+        working_directory: paper
+        root_file: main.tex
     - name: Copy PDF thesis
       run: cp paper/main.pdf public/draft.pdf
     - name: FTP-Deploy-Action
@@ -25,4 +26,7 @@ jobs:
         FTP_SERVER: thesis.science.upjs.sk
         FTP_USERNAME: jduras
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        METHOD: sftp
+        LOCAL_DIR: public
+        REMOTE_DIR: ~/public_html
         ARGS: --delete
