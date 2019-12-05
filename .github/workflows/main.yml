@@ -1,0 +1,32 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Hugo setup
+      uses: peaceiris/actions-hugo@v2.3.0
+    - name: Build website
+      run: hugo --minify
+    - name: Compile LaTeX thesis
+      uses: xu-cheng/latex-action@master
+      with:
+        working_directory: paper
+        root_file: main.tex
+    - name: Copy PDF thesis
+      run: cp paper/main.pdf public/draft.pdf
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      env:
+        FTP_SERVER: thesis.science.upjs.sk
+        FTP_USERNAME: jduras
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        METHOD: sftp
+        LOCAL_DIR: public
+        REMOTE_DIR: ~/public_html
+        ARGS: --delete
