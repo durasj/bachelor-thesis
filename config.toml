@@ -4,6 +4,11 @@ title = "Jakub Duras Bachelor Thesis"
 theme = "hugo-xmin"
 footnotereturnlinkcontents = "↩"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [permalinks]
     post = "/post/:year/:month/:day/:slug/"
     note = "/note/:year/:month/:day/:slug/"
