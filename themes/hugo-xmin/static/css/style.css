@@ -18,6 +18,9 @@ body {
 .article-meta:not(:last-of-type), .menu li:not(:last-of-type) {
   margin-right: 5px;
 }
+.article-meta .title {
+  color: #000000;
+}
 .menu, .article-meta, footer { text-align: center; }
 .title { font-size: 1.1em; }
 footer a { text-decoration: none; }
