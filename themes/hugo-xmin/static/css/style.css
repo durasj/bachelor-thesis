@@ -11,8 +11,12 @@ body {
 .article-meta, .menu a {
   text-decoration: none;
   background: #eee;
+  color: #0000ee;
   padding: 5px;
   border-radius: 5px;
+}
+.article-meta:not(:last-of-type), .menu li:not(:last-of-type) {
+  margin-right: 5px;
 }
 .menu, .article-meta, footer { text-align: center; }
 .title { font-size: 1.1em; }
