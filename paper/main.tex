@@ -94,7 +94,7 @@ It applies from 1st of July 2016, replaces local law, and regulates, among other
 In general, electronic signature can be represented in different ways (e.g. as an image, text or other data attached to the document) and they can not be denied in legal proceedings just because they are in the electronic form \cite{4}.
 
 Advanced electronic signatures are a subset of electronic signatures that have to uniquely link and identify the signature author, be created in a way that is possible only by them and any changes to the signed document is detectable \cite{5}.
-From the technical point of view, standards PAdES, XAdES and, CAdES specified by the ETSI comply with these requirements.
+From the technical point of view, standards PAdES, XAdES, and CAdES specified by the ETSI comply with these requirements.
 
 Qualified electronic signatures (QES) are a subset of advanced electronic signatures with more specific requirements that can be found in the annex 1 of the eIDAS regulation\footnote{https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910\#d1e32-111-1}.
 In more practical terms, such advanced electronic signatures are created with a qualified device using a qualified certificate and a qualified trust service. Qualified in this case means authorized for such use by the legal authorities.
@@ -111,7 +111,7 @@ Computer programs and associated materials are historically protected under copy
 
 Such right can be exercised, as far as we are concerned, to license the software under either proprietary or open-source license.
 Proprietary meaning under exclusive legal right of the author, typically also confidential and distributed as a paid product.
-Open-source meaning having its source code freely available, typically also distributed for free.
+Open-source meaning having its source code freely available, typically also distributed for free and without any liability (the software is provided "as is").
 
 Motivation to license the software under an open-source license can differ, and so do such licenses.
 While a proprietary license is usually made specifically for that entity and its interests, open-source licenses tend to be reused between different authors.
@@ -119,43 +119,59 @@ This means consumers of the software can quickly recognize their rights and resp
 In general, we can classify the open-source licenses into two categories: permissive and copyleft.
 
 Copyleft license, in general, requires the user to publish the modified work under the compatible (free) license.
-Meaning forcing them to extend the rights they have received onto others and, in turn, somehow hindering use in software licensed under a different license and potential commercialization.
+Meaning forcing them to extend the rights they have received onto others and, in turn, somehow hindering use in software licensed under a different license.
 Popular example of such license is the GNU General Public License (GPL) and its derivatives like GNU Lesser GPL (LGPL) or GNU Affero GPL (AGPL).
 
 Permissive license, on the other hand, does not have such requirement in place and is more suitable for potential commercialization.
 They typically allow commercial use, modifications, distribution or sublicensing as long as the author is not held liable and the original copyright and license is distributed with the software.
 Often used permissive licenses are MIT License, Apache License or BSD License.
 
-It is not uncommon to see hybrid licensing - licensing under more than one license with one being open-source and one proprietary.
+It is not uncommon to see hybrid licensing - licensing under more than one license, with one being typically open-source and one proprietary.
+In this scenario, users can choose which license they want to use based on their needs.
 
 \obrazok{./figures/license-comparison}{Classification and comparison of software licensing models.}
 
+As we have already mentioned, software licenses can influence whether and how it can be used as a part of different software.
+Both when we are using someone else's software and when someone else is using our software.
+Generally speaking, the more open the license is, the higher the probability it will not stop adoption for legal reasons.
+Various possible combinations can be seen in Figure 3, where greyed out options mean such combination is not possible unless a separate licensing agreement is reached with the copyright owner.
+
+\obrazok{./figures/license-compatibility}{Schematic representation of license directionality.\cite{7}}
+
+\newpage
+
 \section{Cryptography}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Integer lacinia, nulla porta varius tempus, lacus metus blandit
-lorem, a rutrum justo wisi id sapien. Integer risus libero,
-feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
-quam eu elementum aliquet, lorem quam euismod dui, aliquet
-laoreet purus ipsum ac quam.
+Previously mentioned standards PAdES, XAdES, and CAdES define how asymmetric cryptography, hashing, or timestamping should be used to comply with the standards.
+We go over a few of these topics and why they are able to satisfy the requirements.
 
-\subsection{Asymmetric cryptography}
+\subsection{Asymmetric encryption}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Integer lacinia, nulla porta varius tempus, lacus metus blandit
-lorem, a rutrum justo wisi id sapien. Integer risus libero,
-feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
-quam eu elementum aliquet, lorem quam euismod dui, aliquet
-laoreet purus ipsum ac quam.
+TODO: How it works.
+
+TODO: How the private key is stored on the HSM, PKCS11 (be created in a way that is possible only by them).
+
+TODO: Third party completing the trust chain (uniquely link and identify).
 
 \subsection{Hashing}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Integer lacinia, nulla porta varius tempus, lacus metus blandit
-lorem, a rutrum justo wisi id sapien. Integer risus libero,
-feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
-quam eu elementum aliquet, lorem quam euismod dui, aliquet
-laoreet purus ipsum ac quam.
+TODO: How it works.
+
+TODO: How it is used on the documents (guaranted that changes are detected).
+
+\subsection{Timestamping}
+
+TODO: How it works.
+
+TODO: How it is used on the documents (parallels with the hand-written signature and date on the contract).
+
+TODO: Long term validation.
+
+\subsection{PAdES, XAdES, and CAdES}
+
+TODO: Quick explanation of each.
+
+TODO: How they can be used on a different file formats (table).
 
 \section{Software engineering}
 
@@ -249,6 +265,9 @@ Ut lobortis semper risus, non condimentum dui convallis ut. Nulla eget volutpat 
   % 1. Knižná publikácia (monografia, učebnica, zborník ...)
   %   1 autor
 
+  %  ------
+  % Law
+  %  ------
   \bibitem{1}
   \emph{§ 40 ods. 3 zákona č. 40/1964 Zb. občiansky zákonník}
 
@@ -266,6 +285,12 @@ Ut lobortis semper risus, non condimentum dui convallis ut. Nulla eget volutpat 
 
   \bibitem{6}
   \emph{Council Directive 91/250/EEC of 14 May 1991 on the legal protection of computer programs}
+
+  %  ------
+  % Article
+  %  ------
+  \bibitem{7}
+  \osoba{Morin, A.}, et al. 2012. A Quick Guide to Software Licensing for the Scientist-Programmer. In: \emph{PLoS computational biology} [online]. Volume 8, issue 7 [cit. 2020-01-27]. e1002598. Available at: \url{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002598}
 
   %\bibitem{2}
   %\osoba{Beck, G.}, 2007. \emph{Zakázaná rétorika: 30 manipulatívních technik}. Preklad
