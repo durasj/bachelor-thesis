@@ -49,7 +49,7 @@ Abstrakt v SK jazyku bude pridaný neskôr ako voľný preklad z EN verzie (pozr
 
 \uvod
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Will be added at the end. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 Integer lacinia, nulla porta varius tempus, lacus metus blandit
 lorem, a rutrum justo wisi id sapien. Integer risus libero,
 feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
@@ -68,46 +68,132 @@ All in relation to the electronic signatures, and, where applicable, open-source
 \section{Law}
 
 Unless specified otherwise, we are considering law applicable locally in the Slovak Republic (SR).
-Its law is greatly influenced by the European Union (being its member since 2004) and to some extent by the rest of the world.
+Its law is greatly influenced by the European Union (EU), being its member since 2004, and to some extent by the rest of the world.
 Therefore, we can assume this is at least partially applicable outside of the SR.
 
 \subsection{Signatures}
 
 Signatures are essential part of the written legally binding documents like contracts.
 They are permanently affixed to the document and are supposed to uniquely identify the person and its deliberate, informed consent.
-As can be seen in the Slovak Civil Code, "A written legal act is valid if signed by the acting person;"\cite{1}.
+As can be seen in the Slovak Civil Code, "A written legal act is valid if signed by the acting person;" \cite{1}.
 Law often explicitly requires signatures and further clarifies their expected use.
-For example, when selling an enterprise, "The contract requires written form and attested signatures of the seller and the buyer."\cite{2}.
+For example, when selling an enterprise, "The contract requires written form and attested signatures of the seller and the buyer." \cite{2}.
 
 Signature is considered an "attested signature"\footnote{Translation from "osvedčený podpis" as used in the Slovak law.} if it is attested by the authorized third party.
-Such process, known as legalization, is regulated by the law and its purpose is to attest information which could form the basis for the exercise of rights or which could cause legal consequences\cite{3}.
+Such process, known as legalization, is regulated by the law and its purpose is to attest information which could form the basis for the exercise of rights or which could cause legal consequences \cite{3}.
 
-Historically, \todo{Comment on law and electronic signatures}
+With regards to electronic signatures, law within the EU used to differ, with law applicable in the SR being now repealed "Zákon č. 215/2002 Z.z.".
 
-\subsection{European Union Regulation eIDAS}
+\subsection{EU Regulation eIDAS}
 
-With intention to stimulate digital growth, the European Union established regulation on electronic identification and trust services for electronic transactions in the European Single Market (eIDAS).
-It applies from 1st of July 2016 and, among other things, it regulates electronic signatures focusing on the:
+With intention to stimulate digital growth by building trust, the EU established regulation on electronic identification and trust services for electronic transactions in the internal market (eIDAS).
+It applies from 1st of July 2016, replaces local law, and regulates, among other things, electronic signatures and its more specific variants.
 
-1. Electronic signatures in general.
-2. Qualified electronic signatures.
-3. Trust service.
+\obrazok{./figures/electronic-advanced-qualified}{The relation between electronic, advanced, and qualified signatures.}
 
-\todo{Explain and cite how electronic signatures can be used instead of hand-written one and qualified instead of attested}
+In general, electronic signature can be represented in different ways (e.g. as an image, text or other data attached to the document) and they can not be denied in legal proceedings just because they are in the electronic form \cite{4}.
 
-\subsection{Copyright and computer software}
+Advanced electronic signatures are a subset of electronic signatures that have to uniquely link and identify the signature author, be created in a way that is possible only by them and any changes to the signed document is detectable \cite{5}.
+From the technical point of view, standards PAdES, XAdES and, CAdES specified by the ETSI comply with these requirements.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Qualified electronic signatures (QES) are a subset of advanced electronic signatures with more specific requirements that can be found in the annex 1 of the eIDAS regulation\footnote{https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910\#d1e32-111-1}.
+In more practical terms, such advanced electronic signatures are created with a qualified device using a qualified certificate and a qualified trust service. Qualified in this case means authorized for such use by the legal authorities.
+
+Furthemore, a qualified electronic signature has the legal effect of a handwritten signature \cite{4} and attested handwritten signatures in the SR.
+
+Mentioned terminology is used when considering natural person. Legal entities are able to use "electronic seals", which are, from the technical point of view and our purposes, identical.
+
+Overall, electronic signatures are supposed to be, within the EU, interoperable and transparent alternative to hand-written signatures.
+
+\subsection{Software copyright}
+
+Computer programs and associated materials are historically protected under copyright as literary works, and protected authors should be able to authorize or prohibit certain acts \cite{6}.
+
+Such right can be exercised, as far as we are concerned, to license the software under either proprietary or open-source license.
+Proprietary meaning under exclusive legal right of the author, typically also confidential and distributed as a paid product.
+Open-source meaning having its source code freely available, typically also distributed for free.
+
+Motivation to license the software under an open-source license can differ, and so do such licenses.
+While a proprietary license is usually made specifically for that entity and its interests, open-source licenses tend to be reused between different authors.
+This means consumers of the software can quickly recognize their rights and responsibilities if they decide to use, modify, or distribute the software.
+In general, we can classify the open-source licenses into two categories: permissive and copyleft.
+
+Copyleft license, in general, requires the user to publish the modified work under the compatible (free) license.
+Meaning forcing them to extend the rights they have received onto others and, in turn, somehow hindering use in software licensed under a different license and potential commercialization.
+Popular example of such license is the GNU General Public License (GPL) and its derivatives like GNU Lesser GPL (LGPL) or GNU Affero GPL (AGPL).
+
+Permissive license, on the other hand, does not have such requirement in place and is more suitable for potential commercialization.
+They typically allow commercial use, modifications, distribution or sublicensing as long as the author is not held liable and the original copyright and license is distributed with the software.
+Often used permissive licenses are MIT License, Apache License or BSD License.
+
+It is not uncommon to see hybrid licensing - licensing under more than one license with one being open-source and one proprietary.
+
+\obrazok{./figures/license-comparison}{Classification and comparison of software licensing models.}
 
 \section{Cryptography}
 
-- 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Integer lacinia, nulla porta varius tempus, lacus metus blandit
+lorem, a rutrum justo wisi id sapien. Integer risus libero,
+feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
+quam eu elementum aliquet, lorem quam euismod dui, aliquet
+laoreet purus ipsum ac quam.
+
+\subsection{Asymmetric cryptography}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Integer lacinia, nulla porta varius tempus, lacus metus blandit
+lorem, a rutrum justo wisi id sapien. Integer risus libero,
+feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
+quam eu elementum aliquet, lorem quam euismod dui, aliquet
+laoreet purus ipsum ac quam.
+
+\subsection{Hashing}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Integer lacinia, nulla porta varius tempus, lacus metus blandit
+lorem, a rutrum justo wisi id sapien. Integer risus libero,
+feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
+quam eu elementum aliquet, lorem quam euismod dui, aliquet
+laoreet purus ipsum ac quam.
 
 \section{Software engineering}
 
-- 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Integer lacinia, nulla porta varius tempus, lacus metus blandit
+lorem, a rutrum justo wisi id sapien. Integer risus libero,
+feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
+quam eu elementum aliquet, lorem quam euismod dui, aliquet
+laoreet purus ipsum ac quam.
 
-\chapter{Methodology}
+\subsection{Design}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Integer lacinia, nulla porta varius tempus, lacus metus blandit
+lorem, a rutrum justo wisi id sapien. Integer risus libero,
+feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
+quam eu elementum aliquet, lorem quam euismod dui, aliquet
+laoreet purus ipsum ac quam.
+
+\subsection{Implementation}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Integer lacinia, nulla porta varius tempus, lacus metus blandit
+lorem, a rutrum justo wisi id sapien. Integer risus libero,
+feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
+quam eu elementum aliquet, lorem quam euismod dui, aliquet
+laoreet purus ipsum ac quam.
+
+\subsection{Maintenance}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Integer lacinia, nulla porta varius tempus, lacus metus blandit
+lorem, a rutrum justo wisi id sapien. Integer risus libero,
+feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
+quam eu elementum aliquet, lorem quam euismod dui, aliquet
+laoreet purus ipsum ac quam.
+
+\chapter{Goals and analysis}
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 Integer lacinia, nulla porta varius tempus, lacus metus blandit
@@ -171,6 +257,15 @@ Ut lobortis semper risus, non condimentum dui convallis ut. Nulla eget volutpat 
 
   \bibitem{3}
   \emph{§ 56 ods. 1 zákona č. 323/1992 Zb. notársky poriadok}
+
+  \bibitem{4}
+  \emph{Article 25, Regulation (EU) No 910/2014}
+
+  \bibitem{5}
+  \emph{Article 26, Regulation (EU) No 910/2014}
+
+  \bibitem{6}
+  \emph{Council Directive 91/250/EEC of 14 May 1991 on the legal protection of computer programs}
 
   %\bibitem{2}
   %\osoba{Beck, G.}, 2007. \emph{Zakázaná rétorika: 30 manipulatívních technik}. Preklad
@@ -245,10 +340,6 @@ Ut lobortis semper risus, non condimentum dui convallis ut. Nulla eget volutpat 
   %\bibitem{23}
   %STN ISO 690: 2012. \emph{Informácie a dokumentácia. Návod na tvorbu bibliografických odkazov na informačné pramene a ich citovanie}.
   %  ------
-  % 9. Mapa
-  %  ------
-  %\bibitem{24}
-  %VKÚ, 2003. \emph{Košice: mapa okolia}. [1:15000]. 3. vyd. Harmanec: VKÚ. ISBN 80-8042-223-0.
   %  ------
   % 10. Zákon
   %  ------
