@@ -10,7 +10,7 @@
 \fi
 
 %---------------
-\def\obrazok#1#2{%
+\def\obrazok#1#2#3{%
 \begin{figure}[!htb]
 \ifpdf
   \centerline{\includegraphics{#1.pdf}}
@@ -18,7 +18,8 @@
   \centerline{\includegraphics{#1.eps}}
 \fi
 \par
-\centerline{\parbox{13cm}{\sl \caption{#2}}}
+\caption{#2}
+\label{fig:#3}
 \end{figure}
 } 
 %

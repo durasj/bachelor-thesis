@@ -11,7 +11,11 @@
 
 \usepackage[hyphens]{url} % format and linebreak of URLs
 
-\title{Replacing hand-written signatures with open electronic signature software}
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usetikzlibrary{datavisualization.formats.functions}
+
+\title{Replacing handwritten signatures with open electronic signature software}
 \author{Jakub Ďuraš}
 \typprace{bachelor's}
 \rok{2020}
@@ -56,14 +60,16 @@ feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
 quam eu elementum aliquet, lorem quam euismod dui, aliquet
 laoreet purus ipsum ac quam.
 
-
 \chapter{Background and theory}
 
 In our work, we rely on knowledge in several different subjects that we go over in the following sections.
+TODO: Sounds very meh for the very first sentece of the thesis.
 Firstly, the current state of the law and recent changes relating to the use of electronic signatures.
 Secondly, on the well-established concepts in cryptography like asymmetric cryptography or hashing.
 Lastly, expertise from the field of software engineering - especially design, implementation, and maintenance of computer software.
 All in relation to the electronic signatures, and, where applicable, open-source and desktop computer software.
+
+TODO: Think about adding section on handwritten signatures
 
 \section{Law}
 
@@ -75,31 +81,31 @@ Therefore, we can assume this is at least partially applicable outside of the SR
 
 Signatures are essential part of the written legally binding documents like contracts.
 They are permanently affixed to the document and are supposed to uniquely identify the person and its deliberate, informed consent.
-As can be seen in the Slovak Civil Code, "A written legal act is valid if signed by the acting person;" \cite{1}.
+As can be seen in the Slovak Civil Code, "A written legal act is valid if signed by the acting person;" \cite{civilcode}.
 Law often explicitly requires signatures and further clarifies their expected use.
-For example, when selling an enterprise, "The contract requires written form and attested signatures of the seller and the buyer." \cite{2}.
+For example, when selling an enterprise, "The contract requires written form and attested signatures of the seller and the buyer." \cite{civilcode}.
 
 Signature is considered an "attested signature"\footnote{Translation from "osvedčený podpis" as used in the Slovak law.} if it is attested by the authorized third party.
-Such process, known as legalization, is regulated by the law and its purpose is to attest information which could form the basis for the exercise of rights or which could cause legal consequences \cite{3}.
+Such process, known as legalization, is regulated by the law and its purpose is to attest information which could form the basis for the exercise of rights or which could cause legal consequences \cite{notarylaw}.
 
-With regards to electronic signatures, law within the EU used to differ, with law applicable in the SR being now repealed "Zákon č. 215/2002 Z.z.".
+With regards to electronic signatures, law within the EU used to differ, with law applicable in the SR being now repealed "Act No. 215/2002 Coll.".
 
-\subsection{EU Regulation eIDAS}
+\subsection{EU Regulation eIDAS} \label{eidas}
 
 With intention to stimulate digital growth by building trust, the EU established regulation on electronic identification and trust services for electronic transactions in the internal market (eIDAS).
 It applies from 1st of July 2016, replaces local law, and regulates, among other things, electronic signatures and its more specific variants.
 
-\obrazok{./figures/electronic-advanced-qualified}{The relation between electronic, advanced, and qualified signatures.}
+\obrazok{./figures/electronic-advanced-qualified}{The relation between electronic, advanced, and qualified signatures.}{signature-comparison}
 
-In general, electronic signature can be represented in different ways (e.g. as an image, text or other data attached to the document) and they can not be denied in legal proceedings just because they are in the electronic form \cite{4}.
+In general, electronic signature can be represented in different ways (e.g. as an image, text or other data attached to the document) and they \textbf{can not be denied in legal proceedings} just because they are in the electronic form \cite{eidas}.
 
-Advanced electronic signatures are a subset of electronic signatures that have to uniquely link and identify the signature author, be created in a way that is possible only by them and any changes to the signed document is detectable \cite{5}.
-From the technical point of view, standards PAdES, XAdES, and CAdES specified by the ETSI comply with these requirements.
+Advanced electronic signatures are a subset of electronic signatures that have to \textbf{uniquely link and identify} the signature author, be created in a way that is \textbf{possible only by them} and any \textbf{changes to the signed document have to be detectable} \cite{eidas}.
+From the technical point of view, standards PAdES, XAdES, and CAdES specified by the European Telecommunications Standards Institute (ETSI) comply with these requirements. We explain why this is the case in Chapter \ref{cryptography}.
 
-Qualified electronic signatures (QES) are a subset of advanced electronic signatures with more specific requirements that can be found in the annex 1 of the eIDAS regulation\footnote{Available at https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910\#d1e32-111-1}.
+Qualified electronic signatures (QES) are a subset of advanced electronic signatures with more specific requirements that can be found in the annex 1 of the eIDAS regulation\footnote{Available at https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910\#d1e32-111-1.}.
 In more practical terms, such advanced electronic signatures are created with a qualified device using a qualified certificate and a qualified trust service. Qualified in this case means authorized for such use by the legal authorities.
 
-Furthemore, a qualified electronic signature has the legal effect of a handwritten signature \cite{4} and attested handwritten signatures in the SR.
+Furthemore, a qualified electronic signature has the legal effect of a handwritten signature \cite{eidas} and attested handwritten signatures in the SR.
 
 Mentioned terminology is used when considering natural person. Legal entities are able to use "electronic seals", which are, from the technical point of view and our purposes, identical.
 
@@ -107,7 +113,7 @@ Overall, electronic signatures are supposed to be, within the EU, interoperable 
 
 \subsection{Software copyright}
 
-Computer programs and associated materials are historically protected under copyright as literary works, and protected authors should be able to authorize or prohibit certain acts \cite{6}.
+Computer programs and associated materials are historically protected under copyright as literary works, and protected authors should be able to authorize or prohibit certain acts \cite{eeccopyright}.
 
 Such right can be exercised, as far as we are concerned, to license the software under either proprietary or open-source license.
 Proprietary meaning under exclusive legal right of the author, typically also confidential and distributed as a paid product.
@@ -129,79 +135,191 @@ Often used permissive licenses are MIT License, Apache License or BSD License.
 It is not uncommon to see hybrid licensing - licensing under more than one license, with one being typically open-source and one proprietary.
 In this scenario, users can choose which license they want to use based on their needs.
 
-\obrazok{./figures/license-comparison}{Classification and comparison of software licensing models.}
+\obrazok{./figures/license-comparison}{Classification and comparison of software licensing models.}{license-comparison}
 
 As we have already mentioned, software licenses can influence whether and how it can be used as a part of different software.
 Both when we are using someone else's software and when someone else is using our software.
 Generally speaking, the more open the license is, the higher the probability it will not stop adoption for legal reasons.
-Various possible combinations can be seen in Figure 3, where greyed out options mean such combination is not possible unless a separate licensing agreement is reached with the copyright owner.
+Various possible combinations can be seen in Figure \ref{fig:license-compatibility}, where greyed out options mean such combination is not possible unless a separate licensing agreement is reached with the copyright owner.
 
-\obrazok{./figures/license-compatibility}{Schematic representation of license directionality.\cite{7}}
+\obrazok{./figures/license-compatibility}{Schematic representation of license directionality.\cite{licensing}}{license-compatibility}
 
-\newpage
-
-\section{Cryptography}
+\section{Cryptography} \label{cryptography}
 
 Previously mentioned standards PAdES, XAdES, and CAdES define how asymmetric cryptography, hashing, or timestamping should be used to comply with the standards.
 We go over a few of these topics and why they are able to satisfy the requirements.
 
-\subsection{Asymmetric encryption}
+\subsection{Asymmetric cryptography}
 
-TODO: How it works.
+There are several issues that make symmetric encryption unsuitable. Let us imagine we are creating a key for each pair of users in our network - imaginary country Isle of Alice and Bob - for symmetric encryption and decryption of documents shared between each Alice and Bob.
 
-TODO: How the private key is stored on the HSM, PKCS11 (be created in a way that is possible only by them).
+\textbf{Secure distribution of keys} seems to be feasible when we are adding a new user to our network. We require each user to personally come and pick up physical device that contains pregenerated keys. Changes made after that, however, would mean we either need to require periodic personal visit to update the saved keys or transmission of these keys over some medium which can be potentialy unsafe. Any new members of the network are unable to participate untill other Alices and Bobs get their updates.
 
-TODO: Third party completing the trust chain (uniquely link and identify).
+Even if we think we have established a reasonably secure way to do that and we are willing to wait, we realize the \textbf{number of keys} is quickly increasing with each new member. With \textit{n} users, the number of keys is
+
+$$\frac{n \cdot (n - 1)}{2}$$
+
+which means that even our little country with a population of only 70 000 requires roughly 2.5 billion keys. However, since our signature system needs to be portable, we will need to count also with a population of other EU countries, and the number of keys quickly explodes.
+
+\begin{figure}[!htb]
+  \centering
+
+  \begin{tikzpicture}
+    \datavisualization [scientific axes=clean, visualize as smooth line, all axes={ticks={major={at={}}}}, y axis={label={number of keys}}, x axis={label={number of users}}]
+    data [format=function] {
+      var x : interval [2:125];
+      func y = \value x*\value x;
+    };
+  \end{tikzpicture}
+
+  \centerline{\parbox{13cm}{\sl \caption{Cubic growth of the number of keys.}}}
+\end{figure}
+
+\textbf{Either party can also lie} about not signing the document.
+Since both have the key that can be used for encryption, they can sign any document on behalf of the other party, and there is no way to disprove it if we look at it as a third party.
+
+These issues can be addressed with asymmetric cryptography.
+In general, we assign a pair of keys to each person, one of them used for encryption (public key), another used for decryption (private key).
+One party can encrypt, and the other is the only one that can decrypt.
+
+Digital signatures are a specific public-key algorithms.
+The signer is the only one who poses private key used for signing, and others can use the public key for verifying of signatures as can be seen in Figure \ref{fig:pubkey-scheme} where \(x\) is the "document", and \(s\) is the signature that is sent with the document.
+Alice can then sign the document \textit{including} Bob's signature.
+
+\obrazok{./figures/digital-signature-scheme}{Principle of digital signatures which involves signing and verifying a message (Paar 2009). TODO: I don't have rights to this image!!!}{pubkey-scheme}
+
+Practical, widely used implementation of this idea is the RSA signature scheme that relies on the integer factorization problem (difficulty of factoring a product of two large primes) published in 1978 \cite{rsa}.
+
+In Slovakia, the private key is usually handed over to the user personally, saved on the ID card. This ID card (used together with a card reader) provides an API for safe access, management, and cryptoprocessing. Such device is in general called a Hardware Security Module (HSM), and the API relevant for this thesis is PKCS \#11 \footnote{PKCS \#11 specification available at \url{http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html}.}.
+
+We are left with the problem of public key distribution - even though public-key schemes do not require a \textit{secure channel}, they require \textit{authenticated channels} for the distribution of the public keys \cite{cryptotxtbook}.
+
+Common solution is the use of \textit{certificates}. Certificates are essentially digital signatures with metadata that can be used to establish validity of the received public key before it is used.
+Distribution of such certificates is the responsibility of a Certification Authority (CA) - a third party that all users in the network trust. In the case of the Slovak ID cards, it is Disig - SVK eID ACA issued by the National Security Authority (NBÚ in Slovak).
+Such certificates therefore reliably uniquely link and identify the public key owners as can be seen in Figure \ref{fig:certificate-scheme}\footnote{Created by unknown author, licensed under the CC BY-SA 3.0 license.}.
+
+\obrazok{./figures/certificate-scheme}{Application of digital signature with certificate. TODO: Modify to add CA, remove hashing}{certificate-scheme}
+
+Commonly used standard for public key certificates is X.509\footnote{Specification available under RFC5280 at \url{https://tools.ietf.org/html/rfc5280}.}.
 
 \subsection{Hashing}
 
-TODO: How it works.
+It is often useful to map data of arbitrary size to fixed-length (typically short) set of bits. This process is commonly called \textit{hashing}, function that can be used for it \textit{hash function}, and output of such function \textit{hash}.
 
-TODO: How it is used on the documents (guaranted that changes are detected).
+In cryptography, we are considering only hash functions that can also satisfy these additional requirements:
+
+\begin{enumerate}
+  \item Deterministic - same input data are always mapped to the same hash.
+  \item One-way - it should be practically impossible to retrieve input data for a given hash.
+  \item Resistant to collisions - it should be practically impossible to find two inputs with the same hash.
+  \item Even small change to the input should lead to significantly different hash - so-called \textit{avalanche effect}.
+\end{enumerate}
+
+In the context of digital documents, we can use such hash function to generate a hash for the document.
+This hash can represent a document of any size and is used during the creation of a digital signature instad of document itself.
+Any further changes to the document will, therefore, lead to a significantly different hash, which means the digital signature will no longer be valid, and these changes are detected.
+For this purpose, only hash functions that are reasonably fast can be used, so that we can utilize them on documents of variable size.
+
+TODO: Add scheme of document > hash - valid signature, change in document > different hash - invalid signature.
+
+An example of commonly used hash function family is Secure Hash Algorithms (SHA), with hash functions relevant to this thesis being mainly SHA-2\footnote{SHA-2 specification available in FIPS PUB 180-4 at \url{https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf}.}.
 
 \subsection{Timestamping}
 
-TODO: How it works.
+A common part of the paper signed documents is the date when they were signed.
+Their digital counterpart is PKI-based \textit{trusted timestamping} - a process of digitally signing date and time of document creation or modification.
+No one should be able to tamper with such timestamp - not even the author of the document.
+Additionally, we should not be able to choose arbitrary date and time ourselves, but it should represent the actual time at the signing.
 
-TODO: How it is used on the documents (parallels with the hand-written signature and date on the contract).
+To achieve this, a trusted third party - Timestamping Authority (TSA) - is the one that will sign the hash of the document together with the current date and time.
+This process can be seen in Figure \ref{fig:trusted-timestamping}\footnote{Schema created by Bart Van den Bosch, licensed under the CC BY-SA 2.0 BE license.}.
+Verifying can be by decrypting this information using the public key and comparing the hashes. Any attempt at tampering is therefore detected.
 
-TODO: Long term validation.
+\obrazok{./figures/trusted-timestamping}{Setting a timestamp via a trusted third party.}{trusted-timestamping}
+
+The commonly used standard for the PKI-based timestamping is part of the X.509\footnote{Specification available under RFC3161 at \url{https://www.ietf.org/rfc/rfc3161.txt}.}.
 
 \subsection{PAdES, XAdES, and CAdES}
 
-TODO: Quick explanation of each.
+Extensions for PDF files, XML files, and CMS signed data for signing using advanced electronic signatures (as explained in Chapter \ref{eidas}), are PAdES, XAdES, and CAdES, respectively.
+They are defined in the respective specifications by the ETSI \footnote{Specification for PAdES is available at \url{https://www.etsi.org/deliver/etsi_ts/102700_102799/10277801/01.01.01_60/ts_10277801v010101p.pdf}} \footnote{Specification for XAdES is available at \url{https://uri.etsi.org/01903/v1.3.2/ts_101903v010302p.pdf}} \footnote{Specification for CAdES is available at \url{https://www.etsi.org/deliver/etsi_ts/101700_101799/101733/02.01.01_60/ts_101733v020101p.pdf}}.
 
-TODO: How they can be used on a different file formats (table).
+When using PAdES, signatures are always part of the PDF file itself. This differs from XAdES, where the signature can be either part of the XML or provided as a separate file, or CAdES where signature is always in the form of binary data and it is up to the software.
+
+All of them support multiple signatures applied in succession. Implementation of the PAdES is rather portable since any compatible PDF file reader or editor will work with the signatures in a similar way - signature created in one should be easily verifiable in any other. XAdES and CAdES, however, are usually tied to specific implementation or standard that is built on top of them.
+
+\begin{table}[h!]
+  \begin{tabular}{ |p{2cm}||p{2.2cm}|p{2cm}|p{3cm}|p{3.9cm}| }
+    \hline
+    Standard & Usable with & Format & Multi-signature & Appearance \\
+    \hline
+    PAdES & PDF                  & embedded         & yes, sequential    & supported            \\
+    XAdES & XML, any             & XML              & yes                & depends on the usage \\
+    CAdES & any                  & binary           & yes                & depends on the usage \\
+    \hline
+  \end{tabular}
+
+  \caption{Overview of standards PAdES, XAdES, and CAdES}
+  \label{table:1}
+\end{table}
+
+The ability to retain signed documents for a prolonged period of time is covered in these standards under optional Long-Term Validation (LTV) that allows archiving of documents for many years, possibly decades.
+If enabled, a trustworthy timestamp is required as validity is verified for the time the signature (and therefore timestamp) was created.
+The expiration time is then limited by the validity of the timestamp certificate.
 
 \section{Software engineering}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Integer lacinia, nulla porta varius tempus, lacus metus blandit
-lorem, a rutrum justo wisi id sapien. Integer risus libero,
-feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
-quam eu elementum aliquet, lorem quam euismod dui, aliquet
-laoreet purus ipsum ac quam.
+TODO: Give definition to the software engineering, what aspects we are going over, our focus on the engineering relevant for the open source.
 
 \subsection{Design}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Integer lacinia, nulla porta varius tempus, lacus metus blandit
-lorem, a rutrum justo wisi id sapien. Integer risus libero,
-feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
-quam eu elementum aliquet, lorem quam euismod dui, aliquet
-laoreet purus ipsum ac quam.
+TODO: System modeling
+
+TODO: Architectural design
+
+TODO: Design patterns
+
+TODO: Dependability and Security
 
 \subsection{Implementation}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Integer lacinia, nulla porta varius tempus, lacus metus blandit
-lorem, a rutrum justo wisi id sapien. Integer risus libero,
-feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
-quam eu elementum aliquet, lorem quam euismod dui, aliquet
-laoreet purus ipsum ac quam.
+TODO: Requirements engineering
+
+TODO: Software reuse
+
+TODO: Agile software development
+
+\subsection{Testing and Releasing}
+
+TODO: Quality management
+
+TODO: Automated tests (pyramid, V-model)
+
+TODO: Building, Release management
 
 \subsection{Maintenance}
 
+TODO: Evolution processes
+
+TODO: OSS Sustainability
+
+\chapter{Goals}
+
+\section{Software}
+
+TODO: Basis can be formed on the requirements article https://github.com/durasj/octosign/wiki/Initial-Requirements
+
+TODO: Basic software requirements and more specific software requirements.
+
+TODO: Enginnering parts - architecture, testing, maintainability.
+
+TODO: Backends
+
+\section{Information}
+
+TODO: Website - multilingual, editable by the community
+TODO: Global status - world map
+
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 Integer lacinia, nulla porta varius tempus, lacus metus blandit
 lorem, a rutrum justo wisi id sapien. Integer risus libero,
@@ -209,32 +327,54 @@ feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
 quam eu elementum aliquet, lorem quam euismod dui, aliquet
 laoreet purus ipsum ac quam.
 
-\chapter{Goals and analysis}
+\chapter{Analysis}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Integer lacinia, nulla porta varius tempus, lacus metus blandit
-lorem, a rutrum justo wisi id sapien. Integer risus libero,
-feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
-quam eu elementum aliquet, lorem quam euismod dui, aliquet
-laoreet purus ipsum ac quam.
+\section{Review of existing software}
 
-\chapter{Suggested solution}
+TODO: Explain how they were picked, list them with info on the considered trait.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Integer lacinia, nulla porta varius tempus, lacus metus blandit
-lorem, a rutrum justo wisi id sapien. Integer risus libero,
-feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
-quam eu elementum aliquet, lorem quam euismod dui, aliquet
-laoreet purus ipsum ac quam.
+TODO: Maybe add a simple comparison table? Consider: - format support, commercial, localization, eIDAS, web, required setup, advanced features
+
+\subsection{Desktop application JSignPdf}
+
+\subsection{Web application zep.disig.sk}
+
+\subsection{PDF viewer Adobe Acrobat Reader DC}
+
+\subsection{Commercial desktop application D.PDF Signer}
+
+\section{Modularity}
+
+TODO: Rough overview of different ways modular architecture can be achieved. Focus on modularity via multiple independant applications.
+
+\subsection{Communication}
+
+TODO: Communication in multiple independant applications - IPC, Sockets, Pipes, STDIO.
+
+\subsection{Bundling}
+
+\subsection{Communicating and bundling with GPL software}
 
 \chapter{Results}
 
+\section{Desktop software}
+
+TODO: Structure shoul roughly follow goals
+
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 Integer lacinia, nulla porta varius tempus, lacus metus blandit
 lorem, a rutrum justo wisi id sapien. Integer risus libero,
 feugiat eleifend, ornare ac, volutpat nec, sem. In facilisis,
 quam eu elementum aliquet, lorem quam euismod dui, aliquet
 laoreet purus ipsum ac quam.
+
+\subsection{Comparison with existing software}
+
+TODO: Reference table from analysis, add new column
+
+\section{Website}
+
+TODO: Structure shoul roughly follow goals
 
 Donec dolor arcu, posuere at, vehicula vitae, accumsan ut,
 lacus. Nulla tristique eros eu diam. Vivamus nec tortor vel
@@ -268,29 +408,50 @@ Ut lobortis semper risus, non condimentum dui convallis ut. Nulla eget volutpat 
   %  ------
   % Law
   %  ------
-  \bibitem{1}
-  \emph{Zákon č. 40/1964 Zb. občiansky zákonník, § 40 ods. 3}
+  \bibitem{civilcode}
+  \emph{Act No. 40/1964 Coll. Civil Code}
 
-  \bibitem{2}
-  \emph{Zákon č. 513/1991 Zb. obchodný zákonník, § 476 ods. 2}
+  \bibitem{notarylaw}
+  \emph{Act No. 323/1992 Coll. Notary Law}
 
-  \bibitem{3}
-  \emph{Zákon č. 323/1992 Zb. notársky poriadok, § 56 ods. 1}
+  \bibitem{eidas}
+  \emph{REGULATION (EU) No 910/2014 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL, OJ L 257, 28.8.2014, p. 73–114}
 
-  \bibitem{4}
-  \emph{Regulation (EU) No 910/2014, Article 25}
-
-  \bibitem{5}
-  \emph{Regulation (EU) No 910/2014, Article 26}
-
-  \bibitem{6}
-  \emph{Council Directive 91/250/EEC of 14 May 1991 on the legal protection of computer programs}
+  \bibitem{eeccopyright}
+  \emph{Council Directive 91/250/EEC of 14 May 1991 on the legal protection of computer programs, OJ L 122, 17.5.1991, p. 42–46}
 
   %  ------
   % Article
   %  ------
-  \bibitem{7}
+  \bibitem{licensing}
   \osoba{Morin, A.}, et al. 2012. A Quick Guide to Software Licensing for the Scientist-Programmer. In: \emph{PLoS computational biology} [online]. Volume 8, issue 7 [cit. 2020-01-27]. Available at: \url{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002598}
+
+  \bibitem{cryptotxtbook}
+  \osoba{PAAR, Christof} and \osoba{Pelzl, Jan}, 2009. \emph{Understanding Cryptography - A Textbook for Students and Practitioner}. Berlin: Springer. ISBN 978-3-642-04100-6.
+
+  \bibitem{cryptojoy}
+  \osoba{ROSULEK, Mike}. \emph{The Joy of Cryptography} [online]. Oregon: School of Electrical Engineering \& Computer Science, Corvallis, Oregon, USA [cit. 2020-04-18]. Available at: \url{http://web.engr.oregonstate.edu/rosulekm/crypto/crypto.pdf}
+
+  \bibitem{rsa}
+  \osoba{RIVEST, R. L.}, \osoba{SHAMIR, A.}, and \osoba{ADLEMAN, L.}, 1978. \emph{A method for obtaining digital signatures and public-key cryptosystems}. In: \emph{Communications of the ACM, 21(2):120–126, February 1978.}
+
+  \bibitem{law}
+  \osoba{MASON, Stephen}, 2017. \emph{Electronic Signatures in Law: Fourth Edition}. London: University of London. ISBN 978-1-911507-01-7. Available at: \url{https://humanities-digital-library.org/index.php/hdl/catalog/view/electronicsignatures/1/86-1}
+
+  \bibitem{sommerville}
+  \osoba{SOMMERVILLE, Ian}, 2016. \emph{Software Engineering, 10th Edition}. Harlow: Pearson Education. ISBN 978-0-13-394303-0.
+
+  \bibitem{oss}
+  \osoba{FOGEL, Karl}, 2019. \emph{Producing Open Source Software} [online]. TODO: TODO. [cit. 2020-04-21]. Available at: \url{https://producingoss.com/en/index.html}
+
+  \bibitem{osslicensing}
+  \osoba{LAURENT, Andrew}, 2008. \emph{Understanding Open Source and Free Software Licensing}. Sebastopol: O’Reilly Media. ISBN 978-0596005818.
+
+  \bibitem{eloquentjs}
+  \osoba{HAVERBEKE, Marijn}, 2018. \emph{Eloquent JavaScript, 3rd Edition}. San Francisco: No Starch Press. ISBN 978-1593279509.
+
+  \bibitem{ydkjs}
+  \osoba{SIMPSON, Kyle}, 2020. \emph{You Don't Know JS Yet (book series) - 2nd Edition} [online]. Available at: \url{https://github.com/getify/You-Dont-Know-JS}
 
   %\bibitem{2}
   %\osoba{Beck, G.}, 2007. \emph{Zakázaná rétorika: 30 manipulatívních technik}. Preklad
