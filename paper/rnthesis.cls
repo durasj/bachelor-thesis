@@ -371,6 +371,7 @@ z\'{\i}skan\'ych \v{s}t\'udiom a s pomocou uvedenej literat\'ury.
   \end{center}
 \end{titlepage} 
 \newpage
+\newpage\thispagestyle{empty}\null
 % a dalsia strana ide pre vyhlasenie
 \if@showhonesty
 \if@twoside\newpage\thispagestyle{empty}\null\fi % intentionally left blank to maintain odd pages
@@ -443,7 +444,7 @@ z\'{\i}skan\'ych \v{s}t\'udiom a s pomocou uvedenej literat\'ury.
 \setlength{\@abstractmargin}{1.7cm}
 %odstup od horneho okraja pre abstrakt
 \newlength{\abstracttopmargin}
-\setlength{\abstracttopmargin}{3cm}
+\setlength{\abstracttopmargin}{2cm}
 %nasleduje slovensky ,,abstract"
 \vspace{\abstracttopmargin} % vertikalna medzera od okraja
 \centerline{{\large\bfseries \@abstraktname}}\par\bigskip
