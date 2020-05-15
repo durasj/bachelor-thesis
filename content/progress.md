@@ -4,11 +4,21 @@ title: Progress
 
 ## Current state
 
-Since everything is done as open source, progress on the paper and all of the parts of the software can be tracked in the repositories [durasj/bachelor-thesis](https://github.com/durasj/bachelor-thesis) or [durasj/octosign](https://github.com/durasj/octosign), and [durasj/octosign-dss](https://github.com/durasj/octosign-dss).
+Since everything is done as open source, progress on the paper and all of the parts of the software can be tracked in the repositories [durasj/bachelor-thesis](https://github.com/durasj/bachelor-thesis) or [durasj/octosign](https://github.com/durasj/octosign), [durasj/octosign-dss](https://github.com/durasj/octosign-dss), and [durasj/octosign-image](https://github.com/durasj/octosign-image).
 
 The current draft as PDF can be found in [Draft subpage](https://thesis.science.upjs.sk/~jduras/draft/).
 
-## Overall updates
+## Updates
+
+### Student scientific conference
+
+13.05.2020 - presentation [[online](https://docs.google.com/presentation/d/1qcxDl1DuZiXisl8CZ_8DXzLdNddFJ75Bs_GEG81fP6g/edit?usp=sharing)]
+
+- i18n - with Slovak and Czech translations.
+- Support for different file types.
+- Support for signature verification.
+- Website improvements and content, i18n.
+- Poster [[PDF](poster.pdf)]
 
 ### Finishing of abstractions, 2 more backends, info
 
