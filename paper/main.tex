@@ -24,56 +24,50 @@
 
 \hyphenation{elektro-nic-kých}
 \hyphenation{na-ria-dením}
+\hyphenation{možno-sťami}
+\hyphenation{používateľ-sky}
+\hyphenation{akých-koľ-vek}
 
 \title{Replacing handwritten signatures with open electronic signature software}
 \author{Jakub Ďuraš}
-\iffalse % Not part of the version for ŠVK
 \typprace{bachelor's}
-\fi
-\inytypprace{Student Scientific Conference}
 \rok{2020}
 \odbor{Applied Informatics}
 \miesto{Košice}
 \veduci{RNDr. Viliam Kačala}
 \pracovisko{Institute of Computer Science}
-\iffalse % Not part of the version for ŠVK
 \podakovanie{
-  I would like to thank my supervisor Viliam Kačala for his continuous feedback and patience with my question.
-
-  I would also like to acknowledge help received from Pavol Sokol and Laura Rózenfeldová on legal questions, and access to various resources from Gabriel Semanišin.
-
-  Finally, I would like to thank my family and friends who contributed in various ways to my thesis.
+I want to thank my supervisor RNDr. Viliam Kačala for his continuous feedback and patience with my questions and late submissions.
+I would also like to acknowledge help received from RNDr. JUDr. Pavol Sokol, PhD. on legal questions, and access to resources from prof. RNDr. Gabriel Semanišin, PhD.
+Finally, I would like to thank my family and friends who contributed in various ways to my thesis.
 }
-\fi
 
-\iffalse % Not part of the version for ŠVK
-\pdfzadanie{zadanie.pdf}
-\fi
+\pdfzadanie{assignment.pdf}
 
 \abstract{
 With the recent changes in the legal status of electronic signatures in the world, there is an opportunity to expand the use of electronic signatures as an alternative to handwritten signatures outside the usual areas.
-Electronic signatures are becoming increasingly important in the age of electronic communication when handwritten signatures are unpractical due to the need to print, personally exchange, or send signed documents.
 We devote our attention to the exploration of legal preconditions relevant for the EU, technological preconditions, review of the existing software, and proposal of our own software platform.
-The result is open, user-friendly software for Windows, Mac OS X, and Linux.
+The result is an open software platform for operating systems Windows, Mac OS X, and Linux.
 Using the application, it is possible, following the eIDAS Regulation, to sign and verify the signature of any document with the legal effect of an attested signature.
-Our solution supports ID cards of the Slovak Republic with the eID chip without any modifications or settings, which enables easy use outside the usual use in web applications of the state.
+Our solution supports ID cards of the Slovak Republic with the eID chip without any modifications or settings, which enables use outside the web applications of the state.
 The application is not tied only to the Slovak eID but is ready for further use with various devices in different countries and as a platform for other types of signatures.
-Another part is a website that, in addition to the possibility of downloading software and brief documentation, provides general information about electronic signatures so that the project is as accessible to the public as possible.
-We concentrate on simple extensibility of the program via language translations, documentation, functionality, and general information.
+Another part is a website that, in addition to the possibility of downloading software and brief documentation, provides general information about electronic signatures.
+The emphasis is on simple extensibility of the program via language translations, documentation, functionality, and general information.
+The thesis can be further extended with novel ways of signing or by improving flexibility, which is not up to par with compared software.
 }
 
 \keywords{electronic signature, electronic seal, qualified, open-source, XAdES, PAdES, CAdES, desktop software}
 
 \abstrakt{
 So zmenami v právnom statuse elektronických podpisov vo svete sa vytvára príležitosť rozšíriť elektronické podpisovanie ako plnohodnotnú náhradu pre vlastnoručné podpisy.
-Elektronické podpisy sú dôležité čoraz viac v dobe elektronickej komunikácie, kedy sú vlastnoručné podpisy nepraktické z dôvodu nutnosti tlače, osobného kontaktu alebo zasielania podpísaných dokumentov.\\
 V práci sa venujeme právnym predpokladom relevantným pre EÚ, technologickým predpokladom, prehľadu v súčasnosti dostupného softvéru a návrhu vlastnej softvérovej platformy.
-Výsledkom je otvorený, používateľsky prívetivý softvér pre platformy Windows, Mac OS X a Linux.
+Výsledkom je otvorená softvérová platforma pre operačné systémy Windows, Mac OS X a Linux.
 Pomocou aplikácie je možné, v súlade s nariadením eIDAS, podpísať a overiť podpis ľubovoľného dokumentu, ktorý má rovnaký právny účinok ako osvedčený podpis.
-Naše riešenie podporuje občianske preukazy Slovenskej Republiky s čipom eID bez akýchkoľvek úprav alebo nastavení, čím sa umožní ich jednoduché využitie mimo obvyklého použitia vo webových aplikáciách štátu.
+Naše riešenie podporuje občianske preukazy Slovenskej Republiky s čipom eID bez akýchkoľvek úprav alebo nastavení, čím sa umožňuje ich využitie mimo použitia vo webových aplikáciách štátu.
 Aplikácia nie je viazaná iba na slovenské eID, ale je pripravená na ďalšie použitie s rôznymi zariadeniami v rôznych štátoch a ako platforma pre iné druhy podpisov.
-Súčasťou je aj webová stránka, ktorá okrem možnosti stiahnutia softvéru a stručnej dokumentácie poskytuje všeobecné informácie o elektronických podpisoch, aby bol projekt čo najviac prístupný verejnosti.
-Dôraz kladieme na jednoduchú rozšíriteľnosť programu vo forme jazykových prekladov, dokumentácie, funkcionality a všeobecných informácií.
+Súčasťou je aj webová stránka, ktorá okrem možnosti stiahnutia softvéru a stručnej dokumentácie poskytuje všeobecné informácie o elektronických podpisoch.
+Dôraz je kladený na jednoduchú rozšíriteľnosť programu vo forme jazykových prekladov, dokumentácie, funkcionality a všeobecných informácií.
+Prácu je možné ďalej rožšíriť nepreskúmanými možnosťami podpisovania či zlepšením flexibility, ktorá nie je na úrovni niektorých zástupcov porovnávaného softvéru. 
 }
 
 \klucoveslova{elektronický podpis, elektronická pečať, kvalifikovaný, open-source, XAdES, PAdES, CAdES, počítačový softvér}
@@ -86,10 +80,6 @@ Dôraz kladieme na jednoduchú rozšíriteľnosť programu vo forme jazykových 
 \newpage
 
 \tableofcontents
-\iffalse % Not part of the version for ŠVK
-\listoffigures
-\listoftables
-\fi
 
 \uvod
 
@@ -108,7 +98,7 @@ Secondly, we do a review of the existing software, where we briefly cover severa
 We compare them using several criteria to find out the strengths and weaknesses of the current implementations and identify a potential gap.
 Finally, we devote our attention to our own implementation.
 We explain the proposed desktop software and go into details on software engineering aspects.
-Specifically, modularity, architecture, usability, localization, testing, and automation.
+Specifically, we cover usability, localization, modularity, architecture, testing, and automation.
 In the end, we compare it with the existing software and identify possible future improvements.
 Another result we focus on is a supporting website and how it helps with the use of the software.
 All in a way that is open for extensibility by the community.
@@ -119,15 +109,12 @@ There are several preconditions that allow us to consider electronic signatures 
 Firstly, the current state of the law and recent changes relating to the use of electronic signatures, secondly, well-established concepts in cryptography like asymmetric cryptography or hashing, and lastly, expertise from the field of software engineering - design, implementation, and maintenance of computer software.
 We will concentrate on the first two in relation to the electronic signatures and where applicable open-source desktop computer software.
 
-\iffalse % Not part of the version for ŠVK
-TODO: Think about adding section on handwritten signatures
-\fi
-
 \section{Law}
 
-We are considering law applicable locally in the Slovak Republic (SR).
+Unless stated otherwise, we are considering law applicable locally in the Slovak Republic (SR).
 Its law is greatly influenced by the European Union (EU), being its member since 2004, and by the rest of the world.
 We can assume this is at least partially applicable outside of the SR as well.
+The \cite{law} shapes our overall view on the global legal status of signatures and chapters 1, 2, 3, 6, and 7 of \cite{osslicensing} our Chapter \ref{copyright}.
 
 \subsection{Signatures}
 
@@ -154,7 +141,7 @@ In general, electronic signature can be represented in different ways (e.g. as a
 \pojem{Advanced electronic signatures} are a subset of electronic signatures that have to uniquely link and identify the signature author, be created in a way that is possible only by them and any changes to the signed document have to be detectable \cite{eidas}.
 From the technical point of view, standards \pojem{PAdES}, \pojem{XAdES}, and \pojem{CAdES} specified by the European Telecommunications Standards Institute (ETSI) comply with these requirements. We explain why this is the case in Section \ref{cryptography}.
 
-\pojem{Qualified electronic signatures} (QES) are a subset of advanced electronic signatures with more specific requirements that can be found in annex 1 of the eIDAS regulation\footnote{Available at https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910\#d1e32-111-1.}.
+\pojem{Qualified electronic signatures} (QES) are a subset of advanced electronic signatures with more specific requirements that can be found in annex 1 of the eIDAS regulation\footnote{Available at \url{https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910\#d1e32-111-1}.}.
 In more practical terms, such advanced electronic signatures are created with a qualified device using a qualified certificate and a qualified trust service.
 Qualified, in this case, means authorized for such use by the legal authorities.
 These devices, certificates, and trust services are explicitly listed by the EU. In many cases indirectly by listing the organization (and its items) from a specific country.
@@ -170,43 +157,34 @@ Overall, electronic signatures are supposed to be, within the EU, interoperable 
 Computer programs and associated materials are historically protected under copyright as literary works, and protected authors should be able to authorize or prohibit certain acts \cite{eeccopyright}.
 
 Such right can be exercised to license the software under either proprietary or open-source license.
-\iffalse % Not part of the version for ŠVK
 Proprietary meaning under the exclusive legal right of the author, typically also confidential and distributed as a paid product.
 Open-source meaning having its source code freely available, typically also distributed for free and without any liability (the software is provided "as is").
 
 Motivation to license the software under an open-source license can differ, and so do such licenses.
 While a proprietary license is usually made specifically for that entity and its interests, open-source licenses tend to be reused between different authors.
 This means that consumers of the software can quickly recognize their rights and responsibilities if they decide to use, modify, or distribute the software.
-\fi
 In general, we can classify the open-source licenses into two categories: \pojem{permissive} and \pojem{copyleft}.
 
 Copyleft license, in general, requires the user to publish the modified work under the compatible (free) license.
 As a result, it forces them to extend the rights they have received onto others and, in turn, somehow hinder usability in software licensed under a different license.
-\iffalse % Not part of the version for ŠVK
-A popular example of such license is the GNU General Public License(GPL) and its derivatives like GNU Lesser GPL (LGPL) or GNU Affero GPL (AGPL).
-\fi
+A popular example of such license is the GNU General Public License (GPL) and its derivatives like GNU Lesser GPL (LGPL) or GNU Affero GPL (AGPL).
 
 Permissive licenses, on the other hand, do not have such a requirement in place and are more suitable for potential commercialization.
 They typically allow commercial use, modifications, distribution or sublicensing as long as the author is not held liable, and the original copyright and license are distributed with the software.
-\iffalse % Not part of the version for ŠVK
 Often used permissive licenses are MIT License, Apache License, or BSD License.
-\fi
 
 It is not uncommon to see hybrid licensing - licensing under more than one license, with one being typically open-source and one proprietary.
 In this scenario, users can choose which license they want to use based on their needs.
 
 \obrazok{./figures/license-comparison}{Classification and comparison of software licensing models.}{license-comparison}
 
-\iffalse % Not part of the version for ŠVK
 As we have already mentioned, software licenses can influence whether and how it can be used as a part of different software.
 Both when we are the ones using someone else's software and when someone else is using our software.
-\fi
 Generally speaking, the more open the license is, the higher the probability it will not prevent adoption for legal reasons.
 We provide examples of categorized licenses in Figure \ref{fig:license-comparison}.
 
-\iffalse % Not part of the version for ŠVK
+\iffalse % I have no space for this :(
 Various possible combinations can be seen in Figure \ref{fig:license-compatibility}, where greyed out options mean such combination is not possible unless a separate licensing agreement is reached with the copyright owner.
-
 
 \obrazok{./figures/license-compatibility}{Schematic representation of license directionality. \osoba{Morin 2012} \cite{licensing}}{license-compatibility}
 \fi
@@ -214,7 +192,8 @@ Various possible combinations can be seen in Figure \ref{fig:license-compatibili
 \section{Cryptography} \label{cryptography}
 
 Previously mentioned standards PAdES, XAdES, and CAdES define how asymmetric cryptography, hashing, or timestamping should be used to comply with the standards.
-We go over a these topics and why they are able to satisfy the requirements for QES mentioned in the Section \ref{eidas}.
+We go over these topics and why they are able to satisfy the requirements for QES mentioned in the Section \ref{eidas}.
+We draw our knowledge in chapters about cryptographic primitives from the \cite{cryptotxtbook} and \cite{cryptojoy}.
 
 \subsection{Asymmetric cryptography}
 
@@ -232,22 +211,6 @@ $$\frac{n \cdot (n - 1)}{2}$$
 
 which means that even our little imaginary country with a population of only 70 000 requires roughly 2.5 billion keys. However, since our signature system needs to be portable, we will need to count also with a population of other countries, and so the number of keys grows very quickly.
 
-\iffalse % Not part of the version for ŠVK
-\begin{figure}[!htb]
-  \centering
-
-  \begin{tikzpicture}
-    \datavisualization [scientific axes=clean, visualize as smooth line, all axes={ticks={major={at={}}}}, y axis={label={number of keys}}, x axis={label={number of users}}]
-    data [format=function] {
-      var x : interval [2:125];
-      func y = \value x*\value x;
-    };
-  \end{tikzpicture}
-
-  \centerline{\parbox{13cm}{\sl \caption{Cubic growth of the number of keys.}}}
-\end{figure}
-\fi
-
 Either party can also lie about not signing the document.
 Since both have the key that can be used for encryption, they can sign any document on behalf of the other party, and there is no way to disprove it if we look at it as a third party.
 
@@ -259,13 +222,9 @@ One party can encrypt, and the other is the only one that can decrypt.
 The signer is the only one who possesses the private key used for signing, and others can use the public key for signature verification.
 We sign the document, including the other parties' signature.
 
-\iffalse % Not part of the version for ŠVK
-\obrazok{./figures/digital-signature-scheme}{Principle of digital signatures which involves signing and verifying a message (Paar 2009). TODO: I don't have rights to this image!!!}{pubkey-scheme}
-\fi
-
 Practical, widely used implementation of this idea is the \pojem{RSA} signature scheme that relies on the integer factorization problem published in 1978 \cite{rsa}.
 
-In Slovakia, the private key is usually handed over to the user personally, saved on the ID card. This ID card (used together with a card reader) provides an API for safe access, management, and cryptoprocessing.
+In Slovakia, the private key is usually handed over to the user personally, saved on the ID card. This ID card (used together with a card reader) provides an \pojem{Application Programming Inteface} (API) for safe access, management, and cryptoprocessing.
 Such a device is in general called a \pojem{Hardware Security Module} (HSM), and the API relevant for this thesis is \pojem{PKCS \#11} \footnote{PKCS \#11 specification available at \url{http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html}.}.
 
 We are left with the problem of public key distribution - even though public-key schemes do not require a \textit{secure channel}, they require \textit{authenticated channels} for the distribution of the public keys \cite{cryptotxtbook}.
@@ -280,9 +239,9 @@ Commonly used standard for public key certificates is X.509\footnote{Specificati
 
 \obrazok{./figures/certificate-scheme}{Application of digital signature with certificate.}{certificate-scheme}
 
-\iffalse % Not part of the version for ŠVK
-TODO: Mention EU LOTL
-\fi
+Specific for the EU is online \pojem{List of The Lists} (LOTL) that contains a list with trusted service providers for each country.
+Each member state is obligated to maintain such list, as can be seen in Article 22 of \cite{eidas}.
+From the technical point of view, it is an XML document that is signed and can be processed automatically.
 
 \subsection{Hashing and timestamping}
 
@@ -304,10 +263,6 @@ Any further changes to the document will, therefore, lead to a significantly dif
 This ability is one of the requirements for the advanced electronic signatures from Section \ref{eidas}.
 For this purpose, only hash functions that are reasonably fast can be used, so that we can utilize them on documents of variable size.
 
-\iffalse % Not part of the version for ŠVK
-TODO: Add scheme of document > hash - valid signature, change in document > different hash - invalid signature.
-\fi
-
 An example of commonly used hash function family is \pojem{Secure Hash Algorithms} (SHA), with hash functions relevant to this thesis being mainly SHA-2\footnote{SHA-2 specification available in FIPS PUB 180-4 at \url{https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf}.}.
 
 A common part of the paper signed documents is the date when they were signed.
@@ -324,20 +279,18 @@ Any attempt at tampering is therefore detected, which helps to cover requirement
 
 The commonly used standard for the \pojem{Public Key Infrastructure} (PKI) based timestamping is part of the X.509\footnote{Specification available under RFC3161 at \url{https://www.ietf.org/rfc/rfc3161.txt}.}.
 
-\subsection{PAdES, XAdES, and CAdES}
+\subsection{PAdES, XAdES, and CAdES} \label{etsi}
 
-Extensions for PDF files, XML files, and CMS signed data for signing using advanced electronic signatures, as explained in Section \ref{eidas}, are PAdES, XAdES, and CAdES, respectively.
+Extensions for Portable Document Format (PDF) files, eXtensible Markup Language (XML) files, and Cryptographic Message Syntax (CMS) signed data for signing using advanced electronic signatures, as explained in Section \ref{eidas}, are PAdES, XAdES, and CAdES, respectively.
 They are defined in the respective specifications by the ETSI in \cite{pades}, \cite{xades}, and \cite{cades}.
 
 When using PAdES, signatures are always part of the PDF file itself.
 This differs from XAdES, where the signature can be either part of the XML or provided as a separate file, or CAdES where the signature is always in the form of binary data, and it is up to the software.
 
 All of them support multiple signatures applied in succession.
-\iffalse % Not part of the version for ŠVK
 Implementation of the PAdES is rather portable since any compatible PDF file reader or editor will work with the signatures in a similar way - signature created in one should be easily verifiable in any other. XAdES and CAdES, however, are usually tied to specific implementation or standard that is built on top of them.
-\fi
 
-\begin{table}[h!]
+\begin{table}[!ht]
   \begin{tabular}{ |p{2cm}||p{2.2cm}|p{2cm}|p{3cm}|p{3.9cm}| }
     \hline
     Standard & Usable with & Format & Multi-signature & Appearance \\
@@ -355,15 +308,31 @@ Implementation of the PAdES is rather portable since any compatible PDF file rea
 The ability to keep signed documents valid for a prolonged period of time is covered in these standards under optional \pojem{Long-Term Validation} (LTV) that allows archiving of documents for many years, possibly decades.
 If enabled, a trustworthy timestamp is required as validity is verified for the time the signature (and therefore timestamp) was created.
 The expiration time is then limited by the validity of the timestamp certificate.
+Different profiles - levels - for different standards can be seen in Table \ref{table:2}.
 
-\iffalse % Not part of the version for ŠVK
+\begin{table}[!ht]
+  \centering
+  \begin{tabular}{|l||l|l|l|}
+    \hline
+    Level                     & XAdES     & CAdES     & PAdES     \\
+    \hline
+    Basic                     & XAdES-B   & CAdES-B   & AdES-B    \\
+    B with Timestamp          & XAdES-T   & CAdES-T   & PAdES-T   \\
+    T with Long Term Data     & XAdES-LT  & CAdES-LT  & PAdES-LT  \\
+    LT with Archive timestamp & XAdES-LTA & CAdES-LTA & PAdES-LTA \\
+    \hline
+  \end{tabular}
+
+  \caption{Different profiles - levels - for standards PAdES, XAdES, and CAdES.}
+  \label{table:2}
+\end{table}
+
+\iffalse % I have no space for this :(
 \section{Software engineering}
 
 We will consider Ian Sommerville's definition of software engineeing - "an engineering discipline that is concerned with all aspects of software production from initial conception to operation and maintenance" \cite{sommerville}.
 Aspects we will focus on are design, implementation, testing and releasing, and maintenance.
-Small 
-
-TODO: Give definition to the software engineering, what aspects we are going over, our focus on the engineering relevant for the open source.
+We try to consider specifics of the open-source software as they are sometimes defined in Chapter 7 of \cite{oss}.
 
 \subsection{Design}
 
@@ -398,32 +367,13 @@ TODO: Evolution processes
 TODO: OSS Sustainability
 \fi
 
-\iffalse % Not part of the version for ŠVK
-\chapter{Goals}
-
-\section{Software}
-
-TODO: Basis can be formed on the requirements article https://github.com/durasj/octosign/wiki/Initial-Requirements
-
-TODO: Basic software requirements and more specific software requirements.
-
-TODO: Enginnering parts - architecture, testing, maintainability.
-
-TODO: Backends
-
-\section{Information}
-
-TODO: Website - multilingual, editable by the community
-TODO: Global status - world map
-\fi
-
 \chapter{Review of existing software} \label{review}
 
 We focus only on simple applications made mostly for the signing of the documents.
 During our review, we have used several PDF files that we have tried to sign using QES available on the SR eID.
 We have tried to include software of all types in our review, preferring the most popular, locally available ones, since those should be prepared for the use with the SR eID.
 Excluded are all complex applications with advanced features and high price tag.
-We have picked one open-source desktop application, one web application - Software as a Service (SaaS), one PDF viewer, and one simple paid desktop application. Criteria we focus on are:
+We have picked one open-source desktop application, one web application - \pojem{Software as a Service} (SaaS), one PDF viewer, one simple paid desktop application, and one commercial desktop application with free version. Criteria we focus on are:
 
 \begin{enumerate}
   \item \textbf{Licensing} - is it freely available - both in terms of money and source code - best case is open-source; worst case is paid proprietary software.
@@ -446,6 +396,7 @@ We have summarized our findings in Table \ref{table:software}. Value \doublechec
     zep.disig.sk      & \checkmark      & \doublecheck         & \doublecheck       & \checkmark          & \doublecheck     &                   & \doublecheck                &            \\
     Acrobat DC        & \checkmark      & \checkmark           & \doublecheck       &                     & \checkmark       & \doublecheck      & \doublecheck                &            \\
     D.PDF Signer      &                 &                      & \checkmark         &                     & \doublecheck     & \checkmark        &                             &            \\
+    Podpisuj.sk       & \checkmark      & \doublecheck         & \checkmark         & \doublecheck        & \doublecheck     & \checkmark        & \doublecheck                &            \\
   \end{tabular}
 
   \caption{Comparison of existing software.}
@@ -500,38 +451,40 @@ Outside of that, verification of signatures is part of the application and is ve
 The application is proprietary and can not be extended or verified.
 It is available only on the Windows and Mac OS X.
 
-\section{Commercial desktop application D.PDF Signer}
+\section{Commercial application D.PDF Signer}
 
 Application D.PDF Signer is a paid proprietary desktop application.
 
 \obrazok{./figures/screenshot-dpdfsigner}{Screenshot of the D.PDF Signer.}{screenshot-dpdfsigner}
 
-Just as the zep.digis.sk, D.PDF signer utilizes the currently bundled software with the SR eID.
+Just like the zep.digis.sk, D.PDF signer utilizes the currently bundled software with the SR eID.
 It is straightforward and flexible.
-Downsides are lack of support for platforms other than Windows, localization, and built-in signature verification.
+On the other thand, it lacks support for platforms other than Windows.
+Additionally, the application is only partially localized to English.
+It does not support file formats other than PDF and has no built-in signature verification.
 
-\iffalse % Not part of the version for ŠVK
-\section{Modularity}
+\section{Commercial desktop application Podpisuj.sk}
 
-TODO: Rough overview of different ways modular architecture can be achieved. Focus on modularity via multiple independant applications.
+Application Podpisuj.sk is a paid proprietary desktop application with a free version developed locally in Slovakia.
 
-\subsection{Communication}
+\obrazok{./figures/screenshot-podpisujsk}{Screenshot of the Podpisuj.sk.}{screenshot-podpisujsk}
 
-TODO: Communication in multiple independant applications - IPC, Sockets, Pipes, STDIO.
-
-\subsection{Bundling}
-
-\subsection{Communicating and bundling with GPL software}
-\fi
+The Podpisuj.sk can be downloaded for all three major desktop platforms.
+It does not rely on the software bundled with the SR eID.
+It is relatively easy to use and comes fully preconfigured so it can be used with the SR eID right away.
+Flexibility is not as great as with some other applications we have reviewed, and some options (like custom TSP) require one of the paid versions.
+Not everything is fully localized - especially the website, and any documentation we could find was available only in Slovak.
+It is not possible to extend it, but it is easy to use different tokens for signing.
 
 \chapter{Results}
 
 \section{Desktop software}
 
 We have developed an open-source, cross-platform desktop software with focus on the modularity, architecture, usability, localization, automated testing with overall automation, and extensibility by the community.
-The source code is available at \url{https://github.com/durasj/octosign}, \url{https://github.com/durasj/octosign-dss}, and \url{https://github.com/durasj/octosign-image}.
+Our knowledge on these topics comes from Ian Sommerville's \cite{sommerville}.
+We try to consider specifics of the open-source software as they are sometimes defined in Chapter 7 of \cite{oss}.
 
-\subsection{Usability and localization}
+\subsection{Usability}
 
 Our main objective for the usability was to provide the end-users with an easy to use, straightforward UI, and to make as many decisions for them as possible.
 We have tried to achieve this by using as little controls as possible and by trying to have only one main control that we expect the user to interact with.
@@ -543,16 +496,19 @@ We assume this will mean the users will be more confident as there will be fewer
 
 Since we are developing this application as a cross-platform desktop application available under a permissive open-source license, it should be usable by as many people as possible.
 
+\subsection{Localization}
+
 We have also made the application easily translatable and try to display data like dates in the local format.
 When the application is started, we try to detect the locale of the user and set it as a default language.
 If we do not yet support the locale of the user, we default to the English language.
 At the time of writing, our application is fully translated in three languages: English (source language), Slovak, and Czech.
+Additional languages - German and Spanish - are actively being developed.
 
 The process of content translation is mostly automated.
 We start with the automated extraction of the source strings from the code of the main module and files provided by the backends.
 Next, we manually include the extracted source strings in the commit to our versioning control - we have retained manual control over this to prevent a noise that automated commits could make.
 On push to the hosted repository, a localization platform Transifex\footnote{Transifex is a SaaS localization platform free for OSS, see \url{https://www.transifex.com/}.} automatically pulls and process the updates.
-These phrases can then be translated by anybody using the UI of the Transifex platform to make it easily accessible.
+These phrases can then be translated by anybody using the \textit{User Interface} (UI) of the Transifex platform to make it easily accessible.
 Once the changes are made on the Transifex platform, it automatically creates a pull request on our hosted repository with the changes made to that particular language.
 As we explain in detail in Section \ref{testing}, part of the build process is to incorporate these in the application.
 
@@ -565,18 +521,14 @@ The main module is an Electron\footnote{Electron is a framework allowing the dev
 This module features simple UI and abstraction around modules for signing that we call \pojem{backends}.
 It handles all of the communication with the user for the backend and tries to simplify development of the backends as much as possible.
 
-Signing modules - backends - are separate CLI applications written in any programming language.
+Signing modules - backends - are separate \pojem{Command Line Interface} (CLI) applications written in any programming language.
 They are responsible for the actual document manipulation - signing and verification.
 
-The main module loads all available backends at runtime and verifies their availability, options, and supported file types.
+The main module loads all available backends at runtime.
 Once the user decides to verify or sign a file, they are executed as CLI applications.
 
-Communication between the main module and backends is in plaintext over the standard streams - standard input, output, and error.
-To make sure we have correctly documented and easily accessible way for backend development, we have prepared a Backend specification\footnote{Backend specification is available at \url{https://github.com/durasj/octosign/wiki/Backend-specification}.} that specifies what is required of the backend, what is optionally supported, and the format of the inputs, outputs, and error handling.
-
-\iffalse % Not part of the version for ŠVK
-TODO: Go a bit more over the backend specification here
-\fi
+Communication between the main module and backends is in plaintext over the standard streams (STDIO) - standard input (STDIN), output (STDOUT), and error (STDERR).
+To make sure we have correctly documented and easily accessible way for backend development, we have prepared a Backend specification that specifies what is required of the backend, what is optionally supported, and the format of the inputs, outputs, and error handling.
 
 \obrazok{./figures/modularity}{Modules of our application and their communication.}{modularity}
 
@@ -590,13 +542,107 @@ Thirdly, together with the choice of using standard streams, it means that anyon
 Writing to the standard output stream in CLI application is one of the first things developers usually learn - so-called "Hello World" applications.
 It usually should not involve studying any required third-party libraries, and authors can choose the language they are most familiar with.
 
+\subsection{Signing backends} \label{backends}
+
+Following our specification, each backend is required to provide a configuration file and follow the communication protocol.
+
+Configuration files are written in YAML\footnote{YAML is a human-readable data serialization language, see \url{https://yaml.org/}.} and contain basic information about the backend like name, description, repository, version, author, or license.
+It also contains two properties defining what command should be executed and with what parameters to execute the backend, and build the backend, respectively.
+
+Backend is always called with operation as the first argument, followed by an additional argument that differs between operations.
+The backend should be stateless - that means it should not be influenced by any state it would save like info about what files it signed.
+All communication is in UTF-8 encoded plaintext.
+It needs to implement operations \textit{meta}, \textit{sign}, and \textit{verify} that are run using the configured executable, for example, \textit{./backend-executable meta}, or, \textit{./backend-executable sign /home/path.pdf}.
+
+Operation meta is called to get info about its availability, options, and supported file types.
+This allows the backend to check the platform, available software of the user, etc. and make the decision based on that.
+
+Operation sign and verify are called to sign or verify the file with the absolute path to the file.
+The main module never sends anything over the STDIO unless it's asked to do so from the backend.
+That means the backend acts as a \textit{master} and the main module as a \textit{slave}.
+The UI can end the process if any unexpected situation arises and displays an error.
+The backend can during those two operations, at any moment: write error to the STDERR that is immediately displayed; prompt for additional information by writing to the STDOUT; get the current value of any option by writing to the STDOUT.
+
+Ending the process with the exit code 0 signals success.
+Some operations expect a result on the STDOUT before the process exits.
+If code other than 0 is used, the backend should always send an error message to the STDERR.
+
+Messages exchanged via the STDIN and STDOUT can be sometimes polluted by different libraries used on either part, so they are distinguished from the rest by using the following delimiter:
+
+\begin{verbatim}
+---TYPE---
+any information exchanged in the appropriate format
+---TYPE---
+\end{verbatim}
+
+\textit{TYPE} here is replaced by \textit{PROMPT}, \textit{GETOPTION}, or \textit{RESULT} based on the type of the message.
+Such messages should be written in one chunk and flushed. Communication on the STDERR is accepted and displayed as-is.
+
+Prompt is used to interactively ask for more information from the user.
+The backend can ask to get an absolute path to the output file, absolute path to opened file, text, password, image (drawn or picked), or position and width of the signature that will be placed in the UI by the user.
+
+Getting an option is used to ask for the current option value that can be set in the UI on the Settings screen.
+The option is automatically prefixed on the main module for each backend so it can not retrieve options from other backends to prevent collisions and security issues.
+
+Such communication protocol allows using any language that can simply work with the STDIO without a need for knowledge or third-party libraries to work with serialized data in formats like JSON.
+The backend does not have to use any regular expressions but always simply reads the whole line.
+It is supposed to be as simple as possible for newcomers.
+
+The current version of the full specification is available at \url{https://github.com/durasj/octosign/wiki/Backend-specification}.
+
+\subsubsection{DSS eIDAS backend}
+
+The backend that we call \pojem{Advanced Electronic Signature} (AES), is a Java CLI application that uses \pojem{Digital Signature Service} (DSS) framework. 
+The DSS is a project from the Connecting Europe Facility (CEF) Digital, a European Union fund for pan-European infrastructure investment.
+It is one of the \textit{}{Building Blocks}, as they are called on their website, which helps to create and verify electronic signatures in line with European standards.
+Its documentation, available in \cite{ecdss}, also provides general information about the used standards.
+
+Source of the private key is configurable, and we can use PKCS \#11 to utilize those in HSMs, PKCS \#12 to work with key stores in files, or Microsoft Crypto API that provides an abstraction on different sources.
+It supports all standards mentioned in Chapter \ref{etsi} in various configurations.
+Since we are trying to simplify it down for the user, when signing, we automatically choose to use PAdES when signing PDF, XAdES when signing XML with enveloped signature, and ASiC with CAdES for all other file formats.
+This could be further extended in the future, so the user can manually choose the preferred standard, container type, or signature policy.
+
+Signature verification, however, works with all different combinations that are detected automatically.
+During the verification, we construct a trusted list of root certificates from the LOTL.
+Different lists for different countries are hosted individually on each countries servers.
+For better performance and reliability when there is an outage on those servers, we proxy requests through CloudFlare\footnote{CloudFlare is a CDN provider, see \url{https://www.cloudflare.com/}.} \pojem{Content Delivery Network} (CDN) to distribute cached files that are periodically downloaded and stored on the Amazon Web Services\footnote{Amazon Web Services is a cloud provider with various services, see \url{https://aws.amazon.com/what-is-aws/}.} (AWS) infrastructure using the AWS Lambda and AWS S3.
+
+We also support adding a visible signature for PDFs.
+This helps users to recognize it was digitally signed without a need to mention it in the document itself and provides information on who or when signed it.
+Labels are translated using the current language of the application as we assume this will be the language the receiver will most likely speak.
+
+The backend currently supports configurable TSP URL, so any TSP following the RFC 3161 can be utilized as long as it does not require authentication.
+Authentication is usually done using a name and password or using a digital signature but is currently not supported.
+This could hinder use with qualified TSPs that usually require authentication.
+
+One issue we were facing when working with the DSS framework is the assumption that it is often implemented on the server-side as a service.
+This meant that some APIs are meant to be used in an environment where they are started once, and then they are available or can be run periodically several times a day.
+This is obviously not the case with our architecture since we always run it only when some operation is required, and the application is stopped again.
+We assume this issue can come up during the development of other backends as well and may require a certain level of flexibility from the developer to tackle them.
+
+\subsubsection{Image backend}
+
+To provide users with the ability to sign using a simple image saved on the computer, which is probably a scanned signature, or signature drawn directly in our application, we created what we call \textit{Simple image signature} backend.
+It is useful when users do not have the resources required to sign the document using the QES, or in situations when they would rather not do so.
+
+It is written in Go and utilizes a library for manipulation of PDF files.
+Its purpose is just to ask the main module for the signature file and its position.
+Therefore, this backend utilizes prompt functionality of the communication protocol with options image and position.
+
+Option to draw the signature in the application is using a splining algorithm with a variable stroke that calculates the time it takes to travel between two points.
+Such signatures mimic one of the features of the handwritten signatures from \cite{verification} that are used to verify the authenticity of handwritten signatures.
+That being said, we are not aware of any proof that this approach has any practical benefits outside of aesthetics.
+This approach was outlined on the Square Engineering Blog\footnote{Smoother Signatures article available archived at \url{https://web.archive.org/web/20150211220342/http://corner.squareup.com/2012/07/smoother-signatures.html}.}.
+There is a JavaScript implementation for the browser called Signature Pad\footnote{Signature Pad library is available at \url{https://github.com/szimek/signature_pad}.}.
+
 \subsection{Architecture of the main module} \label{architecture}
 
 Our main module is the most complex one.
-Electron applications have a main thread that is running a Node.js\footnote{Node.js is a JavaScript runtime for use outside of the browser with easier access to the OS APIs.} and a UI thread running the relevant part of the Chromium web browser.
-Their communication is done via IPC and allows access to the Node.js APIs in the UI thread.
+Electron applications have a main thread that is running a Node.js\footnote{Node.js is a JavaScript runtime for use outside of the browser with easier access to the OS APIs.} and a UI thread running the relevant part of the Chromium\footnote{Chromium is a popular open-source browser project, see \url{https://www.chromium.org/Home}.}.
+Their communication is done via \pojem{Inter-process communication} (IPC) and allows access to the Node.js APIs in the UI thread.
 Considering the JavaScript is interpreted at runtime, we are exposing ourselves to potential attacks (mostly XSS\footnote{XSS means Cross-site scripting, see \url{https://owasp.org/www-community/attacks/xss/}.}).
 To reduce the attack surface, as Node.js allows easy access to many APIs like full access to the filesystem, we have fully separated the UI thread and main thread.
+Our work was influenced by knowledge from \cite{eloquentjs} and \cite{ydkjs}.
 
 The main thread is focused only on the communication with the backends and provides the only absolutely necessary functionality for the UI.
 They are connected by a very thin level of abstraction - a set of functions that are bound on the \textit{window} object during the initialization by the main thread and, when called from the UI thread, automatically communicate via IPC.
@@ -606,16 +652,31 @@ Furthermore, it allows us to develop the UI in the browser with a mocked main th
 
 \subsection{Testing and automation} \label{testing}
 
-When approaching automated testing, we have decided to follow the opinion of the engineers at Google\footnote{Approach outlined in the article \textit{Just Say No to More End-to-End Tests} available at \url{https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html}.}.
-We write three types of tests: end-to-end, integration, and unit tests.
+When approaching automated testing, we have decided to implement the testing pyramid as defined by the Mike Cohn\footnote{Mike Cohn came up with this concept in his book \textit{Succeeding with Agile}.}.
+One of the implementations of this idea was done by the Ham Vocke in the article \textit{The Practical Test Pyramid}\footnote{Available on the website of Martin Fowler at \url{https://martinfowler.com/articles/practical-test-pyramid.html}.}.
+It is implemented at a scale at Google, which explains their positive experience with it\footnote{Approach outlined in the article \textit{Just Say No to More End-to-End Tests} available at \url{https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html}.}.
+Following this approach, we write three types of tests: end-to-end, integration, and unit tests.
 The ratio of these types of tests should form a pyramid where the heavy bottom is formed by the unit tests, followed by a smaller set of component tests forming the middle of the pyramid, and a small set of end-to-end tests forming the tip of the pyramid.
+The motivation behind this approach is to write more tests that are faster and break less often (as they are more isolated) as opposed to tests that are slower and break more often.
 
 In our case, we have decided to write unit tests in the Jest\footnote{Jest is a testing framework and runner, see \url{https://jestjs.io/}.} testing both the UI and main thread code, component tests in Jest for the main thread and Cypress\footnote{Cypress is a testing framework and runner using the Chromium, see \url{https://www.cypress.io/}.} for the UI thread combined with the Percy\footnote{Percy is a SaaS for visual testing, see \url{https://percy.io/}.}, and end-to-end tests as Spectron tests which run and interact with the actual distributables (executable files).
 We are able to fully isolate each type of tests because of our architecture that allows easy mocking.
 We explain the architecture in Section \ref{architecture}.
 
-Our code is kept in a git repository hosted at Github and is a source for the Continuous Integration (CI) pipeline that, on each push, runs static analysis on the code, mentioned automated tests, builds the bundle and uploads created distributables for all platforms back to the Github.
+Our code is kept in a git repository hosted at Github and is a source for the Continuous Integration (CI) and Continuous Delivery (CD) pipeline.
+For the CI/CD, we are using Azure Pipelines\footnote{Cloud service from Microsoft that is part of the Azure DevOps, see \url{https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops}.} specifically, that are free for OSS.
+On each push, apart from setting up the environment, we perform static analysis on the code checking the type safety using TypeScript, code style using the ESLint and Prettier, code quality using the CodeClimate.com, and check for potential vulnerabilities using the Snyk.io.
+As for the mentioned automated tests, we run the unit and components tests and monitor the coverage using the Codecov.io.
+In the case coverage would be significantly negatively impacted, the Pull Request (PR) is blocked from being merged.
+Backends are referenced in the same repository by using the git submodules, which allows us to simplify the development and build process.
+Build process build individual backends, the main thread, UI thread, and API code, and uploads bundled distributable files for all platforms back to the Github.
+The whole process runs for each platform - Windows, Linux, and Mac - separately; therefore, there is no need for cross-compiling and running of platform-dependent tools in virtualized environments.
 Publishing of the new release is then done by saving the release in the Github.
+
+We had to overcome issues we have faced with the performance of the Github relases - mainly apparent bandwidth restrictions.
+We have deployed an AWS lambda that is called when a new release is published on Github and sends a message to AWS Simple Queue Service (SQS).
+Another AWS Lambda is triggered on such message, and it downloads all distributable files and creates a metafile with information about the release in AWS S3.
+These files are then served cached over the CDN from CloudFlare.
 
 \subsection{Comparison with existing software}
 
@@ -627,8 +688,9 @@ Publishing of the new release is then done by saving the release in the Github.
     zep.disig.sk      & \checkmark      & \doublecheck         & \doublecheck       & \checkmark          & \doublecheck     &                   & \doublecheck                &              \\
     Acrobat DC        & \checkmark      & \checkmark           & \doublecheck       &                     & \checkmark       & \doublecheck      & \doublecheck                &              \\
     D.PDF Signer      &                 &                      & \checkmark         &                     & \doublecheck     & \checkmark        &                             &              \\
+    Podpisuj.sk       & \checkmark      & \doublecheck         & \checkmark         & \doublecheck        & \doublecheck     & \checkmark        & \doublecheck                &              \\
     \hline
-    Our - Octosign    & \doublecheck    & \doublecheck         & \doublecheck       & \doublecheck        & \checkmark       &                   & \doublecheck                & \doublecheck \\
+    Our - Octosign    & \doublecheck    & \doublecheck         & \doublecheck       & \doublecheck        & \checkmark       & \checkmark        & \doublecheck                & \doublecheck \\
   \end{tabular}
 
   \caption{Comparison of existing software with our software.}
@@ -639,16 +701,17 @@ Using our review from Chapter \ref{review}, we have compared our application in 
 
 Our software is available under a permissive license (see Section \ref{copyright} for why this matters), supports all major desktop platforms, available in several locales, with support for practically all file types and sizes, with built-in verification and easy extensibility.
 
-In the future, we can improve our application to be easier to setup for more users, and be more flexibile when it comes to the source of the private key and certificate, or timestamping.
+In the future, we can improve our application to be easier to set up for more users and be more flexible in the configuration of TSPs or used signature policy.
 That being said, we need to consider each configurable functionality we add as it increases complexity which could mean our software is harder to understand.
 
 \section{Website}
 
 Goal of the website is to both support the application in the form of Download page and Help page and provide a to provide a general information on electronic signatures.
-The website is available at \url{https:\\octosign.com} and source code at \url{https://github.com/durasj/octosign-website}.
 The website is, at the time of writing, available in English and Slovak language.
 
 \obrazok{./figures/website-home}{Home page of the octosign.com website.}{website-home}
+
+\subsection{Downloads}
 
 Downloads are available for each major desktop platform in a format suitable for installation or integration in the operating system.
 For Windows, we are distributing an \textit{.exe} installer working on all supported 64-bit Windows versions.
@@ -659,6 +722,18 @@ All of the distributables originate from the Github as assets of a release, wher
 Each release is tied to a tag on the master branch, where each commit has to be signed using a recognized PGP key.
 In turn, we have some level of confidence source code used for the distributables comes from one of the authors.
 
+To improve on this further, we are doing a \pojem{code-signing} for each release using a trusted way for each platform.
+On Mac OS X, this means enrolling in the Apple Developer Program that requires an annual fee and installation of signing certificates.
+Additionally, it is necessary to \textit{notarize} the application for use on Mac OS X.
+Notarization is an automated process required by Apple to prove that the application does not contain any malicious code and is properly signed and configured.
+If the application is not notarized, Gatekeeper will warn the user about the potentially unsafe software.
+On modern versions of Windows, applications that are not code-signed can trigger a warning or, depending on the settings, even completely prevent the user from using software that is not code-signed using a certificate that is cosigned with a trusted root certificate.
+Certification for individuals on the Mac OS seems to be fully automated, does not involve lengthy verification, and costs 99 USD a year.
+Certification on Windows is offered by various trusted third parties like DigiCert.com that we have used and involves lengthy, partially automated verification at a price starting from 60 USD a year.
+At the time of writing, there does not seem to be any service offering code-signing certificates to OSS for free.
+
+\subsection{Information and help}
+
 Our website provides a simple help page with different use cases that should allow users to start using the application quickly.
 It also contains a brief explanation of more advanced features of the application like settings.
 
@@ -668,22 +743,62 @@ We also plan to provide more detailed information for people who are curious abo
 
 These pages are written in a Markdown\footnote{Markdown is a lightweight markup language, see \url{https://commonmark.org/}.}, making it more accessible for editing by the community that does not need to understand specific technologies used to display the content on the website.
 
+\subsection{Technologies}
+
+From the technological point of view, the website is a \pojem{Single Page Application} (SPA) written in React\footnote{React is a JavaScript library for building user interfaces, see \url{https://reactjs.org/}.}.
+It is built using Gatsby\footnote{Gatsby is a free and open-source framework based on React, see \url{https://www.gatsbyjs.org/}.}.
+Even though it is a SPA, it is \pojem{prerendered} to static HTML and CSS files that are served from CDN, which improves performance and allows for better \pojem{Search Engine Optimization} (SEO).
+
+The website is using CI/CD services from Netlify.com that is also responsible for distribution using a CDN.
+Each push on the master branch triggers a build and deploy on the live website.
+Each PR has a deploy preview that is basically a unique link that shows proposed changes built and deployed on the web.
+Such approach allows for easy iteration and allows others to contribute the content in markdown files without a need to build the website locally as they can see results as soon as they open the PR.
+
+Different language mutations are denoted by using a suffix, for example, the home page is written in English and Slovak using file names \textit{home.en.tsx} and \textit{home.sk.tsx}.
+Same applies for content written in markdown, for example, help page on basic usage is written in files \textit{basic.en.md} and \textit{basic.sk.md}.
+The URL of the website contains language code of the current language if it is other than English, for example, the download page is available in English on path \textit{/download} and in Slovak on path \textit{/sk/download}.
+By switching the language using the selector on the upper right, the URL changes to the required format.
+
+TODO: If you mind this blank space, I can add a scheme with source files in various languages > gatsby > CDN flow.
+
 \zaver
 
-We verified that all legal and technical preconditions are met for electronic signatures and should be, therefore, a viable alternative to handwritten signatures.
+We verified that the main legal and technical preconditions should be met for the use of electronic signatures.
+They should be, therefore, a viable alternative to handwritten signatures.
 
 We did a review of the existing software focusing on the licensing, cross-platform compatibility, localization, file support, ease of setup, flexibility, verification ability, and extensibility.
 We identified the positive and negative sides of the current implementations and found a gap in the software for signing using the qualified electronic signatures.
 
-Therefore, we proposed a simple open-source software platform that aims to be straightforward for the end-user by choosing the most likely defaults and reducing the amount of information the user has to interact with, increasing the potential confidence of the user.
+Therefore, we proposed a simple open-source software platform that aims to be straightforward for the end-user by choosing the most likely defaults and reducing the amount of information the user has to interact with.
 Also, we made our application easy to translate using a third-party web UI where anyone from the community can contribute with translations.
-Our application was translated into three languages: English, Slovak, and Czech.
-It is also is fully modular, dividing the main module that contains the UI and modules performing the document manipulation.
-We implemented a module for signing using advanced electronic signatures that follow the European standards and should be fully compliant with the European law, and a module that allows signing using a scanned signature or drawn signature.
+Our application is available in three languages: English, Slovak, and Czech, with German and Spanish in translation.
+It is also fully modular, dividing the main module that contains the UI and modules performing the document manipulation.
+We implemented a module for signing using qualified electronic signatures that follow the European standards and should be compliant with the European law, and a module that allows signing using a scanned or drawn signature.
 The proposed software is a platform on which others can quickly build new ways to sign documents complying with different laws or to base further research.
 From the software engineering perspective, the implementation is robust, and we covered testing and automation in connection to Electron applications like ours.
 On the other hand, there is some room for improvement in flexibility and ease of setup of our software.
-We also maintain a supporting website that provides download links for all major desktop platforms, a help page, and general information on electronic signatures.
+We also created a supporting website that provides download links for all major desktop platforms, a help page, and general information on electronic signatures.
+Our project should be open to people from different countries, speaking different languages, and open for contributions from people with various skills - not just from programmers.
+
+\chapter*{Resumé}
+\addcontentsline{toc}{chapter}{Resumé}
+
+Overili sme, že hlavné predpoklady pre použitie elektronických podpisov by mali byť naplnené.
+Mali by byť preto schodnou alternatívou pre vlastnoručné podpisy.
+
+Preskúmali sme existujúci softvér so zameraním na licenciu, kompatibilitu medzi platformami, lokalizáciu, podporu súborov, ľahkosť nastavenia, flexibilitu, schopnosť overiť podpisy a rozšíriteľnosť.
+Identifikovali sme pozitívne a negatívne stránky súčasných implementácií a našli sme medzeru v softvéri na podpisovanie pomocou kvalifikovaných elektronických podpisov.
+
+Preto sme navrhli jednoduchú otvorenú softvérovú platformu, ktorá sa snaží byť priamočiara pre koncového používateľa výberom pravdepodobných predvolených hodnôt a znížením množstva informácií s ktorými sa používateľ stretáva.
+Taktiež sme uľahčili preklad našej aplikácie pomocou webového rozhrania tretej strany, s ktorým môže ktokoľvek z komunity pomôcť prekladmi.
+Naša aplikácia je dostupná v troch jazykoch: angličtine, slovenčine a češtine s nemčinou a španielčinou v prekladaní.
+Je tiež plne modulárna s rozdelením hlavného modulu, ktorý obsahuje používateľské rozhranie, a modulov vykonávajúcich manipuláciu s dokumentmi.
+Implementovali sme modul na podpisovanie pomocou kvalifikovaného elektronického podpisu, ktorý spĺňa európske štandardy a mal by byť v súlade s európskymi zákonmi, a modul, ktorý umožňuje podpisovanie pomocou naskenovaného alebo nakresleného podpisu.
+Navrhovaný softvér je platforma, na ktorej môžu ostatní rýchlo vybudovať nové spôsoby podpisovania dokumentov v súlade s rôznymi zákonmi alebo založiť ďalší výskum.
+Venovali sme sa testovaniu a automatizácii vývoja Electron aplikácií, takže implementácia je robustná aj z pohľadu softvérového inžinierstva.
+Na druhej strane existuje priestor na zlepšenie flexibility a jednoduchosti prvotného nastavenia nášho softvéru.
+Vytvorili sme tiež podpornú webovú stránku s možnosťou stiahnutie pre hlavné počítačové operačné systémy, pomocou a všeobecnými informáciami o elektronických podpisoch.
+Náš projekt by mal byť otvorený ľuďom z rôznych krajín, rozprávajúcich rôznymi jazkymi, a zmenám od ľudí s rôznymi zručnosťami - nie len programátorom.
 
 %\renewcommand{\bibname}{Zoznam použitej literatúry}
 \begin{thebibliography}{9}
@@ -724,9 +839,6 @@ We also maintain a supporting website that provides download links for all major
   \bibitem{law}
   \osoba{MASON, Stephen}, 2017. \emph{Electronic Signatures in Law: Fourth Edition}. London: University of London. ISBN 978-1-911507-01-7. Available at: \url{https://humanities-digital-library.org/index.php/hdl/catalog/view/electronicsignatures/1/86-1}
 
-  \bibitem{licensing}
-  \osoba{Morin, A.}, et al. 2012. A Quick Guide to Software Licensing for the Scientist-Programmer. In: \emph{PLoS computational biology} [online]. Volume 8, issue 7 [cit. 2020-01-27]. Available at: \url{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002598}
-
   \bibitem{osslicensing}
   \osoba{LAURENT, Andrew}, 2008. \emph{Understanding Open Source and Free Software Licensing}. Sebastopol: O’Reilly Media. ISBN 978-0596005818.
 
@@ -760,87 +872,76 @@ We also maintain a supporting website that provides download links for all major
   \bibitem{ydkjs}
   \osoba{SIMPSON, Kyle}, 2020. \emph{You Don't Know JS Yet (book series) - 2nd Edition} [online]. Available at: \url{https://github.com/getify/You-Dont-Know-JS}
 
-  %\bibitem{2}
-  %\osoba{Beck, G.}, 2007. \emph{Zakázaná rétorika: 30 manipulatívních technik}. Preklad
-  %\osoba{Pomikálová, M.}. Praha: Grada Publishing. ISBN 978-80-247-1743-2.
-  %\bibitem{3}
-  %\osoba{Vojčík, P.}, 2010. \emph{Občianske právo hmotné II.} 3. prep. a dopl. vyd. Košice: UPJŠ v Košiciach. ISBN 978-80-7097-817-7.
-  %  2 autori
-  %\bibitem{4}
-  %\osoba{Šoltés, M.} a \osoba{Radoňák, J.}, 2013. \emph{Základné princípy laparoskopickej chirurgie.} Košice: UPJŠ v Košiciach. ISBN 978-80-8152-074-7.
-  % 3 autori
-  %\bibitem{5}
-  %\osoba{Guzanin, Š.}, \osoba{Sabovčík, R.} a \osoba{Kačmár, P.}, 2004. \emph{Selected Chapters of Plastic and Reconstructive Surgery: vysokoškolské učebné texty}. Košice: Univerzita Pavla Jozefa Šafárika v Košiciach, Lekárska fakulta. ISBN 80-7097-557-1.
-  % 4 a viac autorov
-  %\bibitem{6}
-  %\osoba{Nagyová, I.} et al. 2009. \emph{Measuring health and quality of life in the chronically ill}. Košice: Equilibria. ISBN 978-80-892-8446-7.
-  % Elektronická kniha
-  %\bibitem{7}
-  %\osoba{Speight, J. G.}, 2005. \emph{Lange's Handbook of Chemistry} [online]. London: McGraw-Hill. [cit. 2009.06.10.] ISBN 978-1-60119-261-5. Dostupné na: \url{http://www.knovel.com/web/portal/basic_search/display?_EXT_KNOVEL_DISPLAY_bookid=1347&_EXT_KNOVEL_DISPLAY_fromSearch=true&_EXT_KNOVEL_DISPLAY_searchType=basic}
-  % zborník
-  %\bibitem{8}
-  %\osoba{Bačkor, M.} a \osoba{Mihaličová, S.}, zost., 2013. \emph{Zborník príspevkov z konferencie 11. dni doktorandov experimentálnej biológie rastlín a 13. konferencie experimentálnej biológie rastlín} [online]. Košice: Univerzita Pavla Jozefa Šafárika v Košiciach, Prírodovedecká fakulta [cit. 2009-06-10]. ISBN 9788081520327. Dostupné na: \url{
-  %  http://www.upjs.sk/public/media/5596/PF-Zbornik-prispevkov-konferencie-11-dni-doktorandov.pdf}
-  %
-  % 2. Časopis (ako celok)
-  %\bibitem{9}
-  %\emph{Thaiszia: Journal of Botany}. Košice: P.J.Safarik University, Botanic Garden, \mbox{1990--\ .} ISSN 1210-0420.
-  %\bibitem{10}
-  %\emph{Ikaros: elektronický časopis o informační bezpečnosti} [online], 2002. [Praha]: Ikaros. 1997--{} [cit. 2002-03-08]. Dostupné na: \url{http://www.ikaros.cz/}. ISSN 1212-5075.
-  % Jedno číslo časopisu
-  %\bibitem{11}
-  %\emph{CHIP: magazín informačních technologií}, 2013. Praha: Burda Praha, roč. 23, říjen. ISSN 1210-0684.
-  %  ------
-  %  3. Príspevok v knihe/zborníku
-  %  ------
-  %\bibitem{12}
-  %\osoba{Sabol, J.}, 2000. Jazyk ako ľudské posolstvo: (namiesto doslovu). In: \emph{O jazyku a štýle kriticky aj prakticky}. Prešov: Náuka, s. 149--159. ISBN 809676022X.
-  %\bibitem{13}
-  %\osoba{Tóthová, E.} a kol., 2013. A rare t(9,22,16)(q34,q11,q24) translocation in chronic myeloid leukemia for which imatinib mesylate was effective: a case report. In: \emph{XXVII. Olomoucké hematologické dny s mezinárodní účastí, 12.--14.5.2013, Olomouc: sborník abstrakt}. Olomouc: Univerzita Palackého v Olomouci, s. 75--76. ISBN 9788024434803.
-  %  ------
-  % 4. Článok v časopise
-  %  ------
-  %\bibitem{14}
-  %\osoba{Beňačka, J.} et al., 2009. A better cosine approximate solution to pendulum equation. In: \emph{International Journal of Mathematical Education in Science and Technology}. Vol. 40, no. 2, p. 206--215. ISSN 0020-739X.
-  %\bibitem{15}
-  %\osoba{Dubayová, T.} et al., 2010. The impact of the intensity of fear on patient's delay regarding health care seeking behavior: a systematic review vyhľadaní zdravotníckej starostlivosti. In: \emph{International Journal of Public Health}. Vol. 55, no. 5, p. 459--468. ISSN 1661-8556.
-  %\bibitem{16}
-  %\osoba{Steinerová, J.}, 2000. Princípy formovania vzdelania v informačnej vede. In: \emph{Pedagogická revue}. Roč. 2, č. 3, s. 8--16. ISSN 1335-1982.
-  %\bibitem{17}
-  %\osoba{Hoggan, D.}, 2002. Challenges, Strategies, and Tools for Research Scientists. In: \emph{Electronic Journal of Academic and Special Librarianship} [online]. Vol. 3, no. 3 [cit. 2013-01-10]. ISSN 1525-321X. Dostupné na: \url{http://southernlibrarianship.icaap.org/content/v03n03/Hoggan_d01.htm}
-  %\bibitem{18}
-  %\osoba{Srbecká, Gabriela}, 2010. Rozvoj kompetencí studentů ve vzdělávání. In: \emph{Inflow: information journal} [online]. Roč. 3, č. 7 [cit. 2013-08-06]. ISSN 1802-9736. Dostupné na: \url{http://www.inflow.cz/rozvoj-kompetenci-studentu-ve-vzdelavani}
-  %  ------
-  % 5. Príspevok v zborníku na CD-ROM
-  %  ------
-  %\bibitem{19}
-  %\osoba{Zemánek, P.}, 2001. The machines for ``green works'' in vineyards and their economical evaluation. In: \emph{9th International Conference: proceedings. Vol. 2. Fruit Growing and viticulture} [CD-ROM]. Lednice: Mendel University of Agriculture and Forestry, p. 262--268. ISBN 80-7157-524-0.
-  %  ------
-  % 6. Záverečné a kvalifikačné práce
-  %  ------
-  %\bibitem{20}
-  %\osoba{Mikulášiková, M.}, 1999. \emph{Didaktické pomôcky pre praktickú výučbu na hodinách výtvarnej výchovy pre 2. stupeň základných škôl}: diplomová práca. Nitra: UKF.
-  %\bibitem{21}
-  %\osoba{Urdzík, P.}, 2007. \emph{Predikcia intrauterinnej rastovej retardácie a preeklampsie pomocou biochemických a ultrazvukových markerov}: dizertačná práca. Košice: UPJŠ v Košiciach.
-  %  ------
-  % 7. Výskumné správy
-  %  ------
-  %\bibitem{22}
-  %\osoba{Baumgartner, J.} a kol., 1998. \emph{Ochrana a udržiavanie genofondu zvierat, šľachtenie zvierat}: výskumná správa. Nitra: VÚŽV.
-  %  ------
-  % 8. Normy
-  %  ------
-  %\bibitem{23}
-  %STN ISO 690: 2012. \emph{Informácie a dokumentácia. Návod na tvorbu bibliografických odkazov na informačné pramene a ich citovanie}.
-  %  ------
-  %  ------
-  % 10. Zákon
-  %  ------
-  %\bibitem{25}
-  %\emph{Zákon č.131/2002 Zb. o vysokých školách a o zmene a doplnení niektorých zákonov.}
-  %\bibitem{26}
-  %\emph{Zákon č. 313/2001 o verejnej službe.}
+  \bibitem{ecdss}
+  \osoba{Vandenbroucke, P.} and \osoba{Beliakov, A.} [online]. \emph{Digital Signature Service}. Luxembourg: CEF Digital [cit. 2020-05-16]. Available at: \url{https://ec.europa.eu/cefdigital/DSS/webapp-demo/doc/dss-documentation.html}
+
+  \bibitem{verification}
+  \osoba{Hafemann, G. L.}, \osoba{Sabourin, R.}, and \osoba{Oliveira, S. L.}, 2017. Offline Handwritten Signature Verification - Literature Review. In: \emph{2017 Seventh International Conference on Image Processing Theory, Tools and Applications (IPTA)}, pp. 1-8. Montreal: IEEE. ISBN 978-1-5386-1842-4. Available at: \url{https://arxiv.org/abs/1507.07909}
 
 \end{thebibliography}
+
+\prilohy
+An up-to-date version of each developed asset is available online on the URL specified in the list.
+The version available at the time of writing is part of the attached CD, and the user manual is also available as Appendix A.
+
+List of the most important assets available online and on the CD:
+
+\begin{itemize}
+  \item Software Octosign - repository with source code: \url{https://github.com/durasj/octosign}.
+  \item Software Octosign - released distributable files: \url{https://github.com/durasj/octosign/releases}.
+  \item Signing backend DSS - repository with source code: \url{https://github.com/durasj/octosign-dss}.
+  \item Signing backend Image - repository with source code: \url{https://github.com/durasj/octosign-image}.
+  \item Website octosign.com - repository with source code: \url{https://github.com/durasj/octosign-website}.
+  \item Documentation - short user manual: \url{https://octosign.com/help/basics}.
+  \item Documentation - signing backend specification: \url{https://github.com/durasj/octosign/wiki/Backend-specification}.
+\end{itemize}
+
+\priloha{User manual}
+
+\section{Downloading and installing the application}
+
+Open the subpage Download on website \url{https://octosign.com} where you can download the application by clicking on the button for your operating system.
+After the download is complete, open the file and follow the instructions.
+
+\section{Signing the document}
+
+First, it is needed to select a document. To select a document, click on the button \textit{SELECT FILES} or drag and drop your document on the application.
+The recommended document type is PDF.
+After selecting the document, a card with the document name will appear just like in the picture.
+
+\scaledobrazok{./figures/screenshot-manual-unsigned}{Screenshot with unsigned document.}{manual-unsigned}{0.5}
+
+Signing is possible using several different types of signatures visible in the upper part of the screen.
+The default type is \textit{Advanced electronic signature}, if available, else \textit{Simple image signature}.
+When signing with an image, there is only a drawn or picked signature image placed on the PDF.
+When signing with an advanced electronic signature, it is possible to use a qualified electronic signature.
+To sign a document, press the button \textit{SIGN} visible on the document card.
+Follow the instructions, and after the signing is successful, the document will be marked as \textit{Signed}.
+
+\scaledobrazok{./figures/screenshot-manual-signed}{Card with the signed document.}{manual-signed}{0.5}
+
+\section{Verifying of document signature}
+
+Verification of the document signature is automatically started after the document is selected, and it does not have to be triggered manually.
+
+\scaledobrazok{./figures/screenshot-manual-verifying}{Card with the document that is being verified.}{manual-verifying}{0.5}
+
+After the verification is completed, the status of the document will be visible on the card of the document, it can be: \textit{Signed}, \textit{Unsigned}, \textit{Invalid}, \textit{Unknown}, and \textit{Indeterminate}.
+
+If there is at least one signature attached to the document, it is possible to see more information about it by clicking on the button \textit{OPEN SIGNATURE DETAILS}.
+
+\section{Settings}
+
+Settings can be opened by clicking on the text \textit{Settings} in the lower right corner of the application.
+
+It is possible to set the language and options specific for the type of the signature.
+
+\scaledobrazok{./figures/screenshot-manual-settings}{Screenshot with open Settings.}{manual-settings}{0.5}
+
+Options available for the Advanced electronic signature backend are:
+
+\textbf{PKCS \#11 Library Path} - The path is automatically prefilled if there is a supported known software installed on the computer. If not, it is possible to fill it manually with the path that you can get from the supplier of the software bundled with your device. The path needs to lead to a library compliant with the PKCS \#11 standard in a 64-bit version.
+
+\textbf{Timestamping Server URL} - The URL is automatically prefilled with value "http://timestamp.digicert.com". In the case you would like to use your own timestamping server, feel free to change it, but please make sure to type in the full URL address, including the protocol ("http://" or "https://").
 
 \end{document}

@@ -23,4 +23,19 @@
 \end{figure}
 } 
 %
+
+%---------------
+\def\scaledobrazok#1#2#3#4{%
+\begin{figure}[!htb]
+\ifpdf
+  \centerline{\includegraphics[scale=#4]{#1.pdf}}
+\else
+  \centerline{\includegraphics[scale=#4]{#1.eps}}
+\fi
+\par
+\caption{#2}
+\label{fig:#3}
+\end{figure}
+} 
+%
 \endinput

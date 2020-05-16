@@ -371,7 +371,12 @@ z\'{\i}skan\'ych \v{s}t\'udiom a s pomocou uvedenej literat\'ury.
   \end{center}
 \end{titlepage} 
 \newpage
+
+% In two side mode this is handled correctly
+\if@twoside\else
 \newpage\thispagestyle{empty}\null
+\fi
+
 % a dalsia strana ide pre vyhlasenie
 \if@showhonesty
 \if@twoside\newpage\thispagestyle{empty}\null\fi % intentionally left blank to maintain odd pages
@@ -395,6 +400,7 @@ z\'{\i}skan\'ych \v{s}t\'udiom a s pomocou uvedenej literat\'ury.
 \end{minipage}
 \end{center}
 \fi %\if@showhonesty
+
 % dalsia strana ide pre podakovanie
 \if\@podakovanie\relax%
   \ClassWarning{rnthesis}{Patri sa uviest \string\podakovanie}
@@ -429,6 +435,10 @@ z\'{\i}skan\'ych \v{s}t\'udiom a s pomocou uvedenej literat\'ury.
     \end{center}
     \vfill
   \else%
+    % In two side mode this is handled correctly
+    \if@twoside\else
+      \newpage\thispagestyle{empty}
+    \fi
     \@pdfzadanie%
   \fi%
 \fi
