@@ -48,14 +48,14 @@ Finally, I would like to thank my family and friends who contributed in various 
 
 \abstract{
 With the recent changes in the legal status of electronic signatures in the world, there is an opportunity to expand the use of electronic signatures as an alternative to handwritten signatures outside the usual areas.
-We devote our attention to the exploration of legal preconditions relevant for the EU, technological preconditions, review of the existing software, and proposal of our own software platform.
+In this work, we devote our attention to the exploration of the legal preconditions relevant for the EU, technological preconditions, review of the existing software, and a proposal of our own software platform.
 The result is an open software platform for operating systems Windows, macOS, and Linux.
-Using the application, it is possible, following the eIDAS Regulation, to sign and verify the signature of any document with the legal effect of an attested signature.
+Using this application, it is possible, following the eIDAS Regulation, to sign and verify the signature of any document with the legal effect of an attested signature.
 Our solution supports ID cards of the Slovak Republic with the eID chip without any modifications or settings, which enables use outside the web applications of the state.
-The application is not tied only to the Slovak eID but is ready for further use with various devices in different countries and as a platform for other types of signatures.
-Another part is a website that, in addition to the possibility of downloading software and brief documentation, provides general information about electronic signatures.
-The emphasis is on simple extensibility of the program via language translations, documentation, functionality, and general information.
-The thesis can be further extended with novel ways of signing or by improving flexibility, which is not up to par with compared software.
+The application is not tied only to the Slovak eID but is ready for further use with various devices in other countries and as a platform for other types of signatures.
+There is also a website that, in addition to the possibility of downloading software and brief documentation, provides general information about electronic signatures.
+The emphasis is on the simple extensibility of the program via language translations, documentation, functionality, and general information.
+The thesis can be further extended with novel ways of signing or by improving flexibility, which is not completely up to par with compared software.
 }
 
 \keywords{electronic signature, electronic seal, qualified, open-source, XAdES, PAdES, CAdES, desktop software}
@@ -87,23 +87,22 @@ Prácu je možné ďalej rožšíriť nepreskúmanými možnosťami podpisovania
 
 Electronic signatures have been around for a while.
 Their practical usability, however, is influenced by their legal status and available infrastructure.
-With the recent changes in the relevant law around the world and the European Union specifically, they see increased adoption.
+With the recent changes to the relevant laws around the world, and in the European Union specifically, they are seeing increased adoption.
 
-While, specifically in the European Union, electronic signatures seem to be relatively extensively used in communication with the government, they do not seem to be widely adopted in the exchange between individuals or smaller organizations, which still seem to prefer handwritten signatures.
-In many cases, however, they may be unpractical for electronic communication due to the need of physical presence or printing and sending of documents.
+While, specifically in the European Union, electronic signatures seem to be used relatively extensively in communication with the government, they do not seem to have been widely adopted in exchange between individuals or smaller organizations, which still seem to prefer handwritten signatures.
+In many cases, however, they may be impractical for electronic communication, due to the need of a person's physical presence or the printing and sending of documents.
 
-Our goal is to explore an accessible way to use electronic signatures.
-In the beginning, we go over the preconditions that make it a viable alternative to the handwritten signatures.
-We cover the legal preconditions relevant for the European Union and Slovakia in particular.
-Also, we explain technical preconditions focusing on the cryptographic concepts like asymmetric cryptography, timestamping, hashing, and standards that comply with the law within the European Union.
+Our goal is to explore an accessible way of using electronic signatures.
+In the beginning, we go over the preconditions that make it a viable alternative to handwritten signatures.
+We cover the legal preconditions relevant to the European Union, and Slovakia in particular.
+Also, we explain technical preconditions, focusing on the cryptographic concepts like asymmetric cryptography, timestamping, hashing, and standards that comply with the laws of the European Union.
 Secondly, we do a review of the existing software, where we briefly cover several applications that are meant for basic use.
 We compare them using several criteria to find out the strengths and weaknesses of the current implementations and identify a potential gap.
-Finally, we devote our attention to our own implementation.
+Finally, we devote our attention to our own software's implementation.
 We explain the proposed desktop software and go into details on software engineering aspects.
 Specifically, we cover usability, localization, modularity, architecture, testing, and automation.
-In the end, we compare it with the existing software and identify possible future improvements.
-Another result we focus on is a supporting website and how it helps with the use of the software.
-All in a way that is open for extensibility by the community.
+In the end, we compare it to the existing software and identify possible future improvements.
+Another result we focus on is a supporting website and how it helps with the use of the software, all in a way that is open for extension by the community.
 
 \chapter{Preconditions and theory}
 
@@ -765,18 +764,18 @@ By switching the language using the selector on the upper right, the URL changes
 \zaver
 
 We verified that the main legal and technical preconditions should be met for the use of electronic signatures.
-We therefore believe, they are a viable alternative to handwritten signatures.
+We therefore believe they are a viable alternative to handwritten signatures.
 
-We did a review of the existing software focusing on the licensing, cross-platform compatibility, localization, file support, ease of setup, flexibility, verification ability, and extensibility.
-We identified the positive and negative sides of the current implementations and found a gap in the software for signing using the qualified electronic signatures.
+We did a review of the existing software, focusing on the licensing, cross-platform compatibility, localization, file support, ease of setup, flexibility, verification ability, and extensibility.
+We identified the positive and negative sides of the current implementations and found a gap in the software for signing using qualified electronic signatures.
 
 Therefore, we proposed a simple open-source software platform that aims to be straightforward for the end-user by choosing the most likely defaults and reducing the amount of information the user has to interact with.
-Also, we made our application easy to translate using a third-party web UI where anyone from the community can contribute with translations.
+Also, we made our application easy to translate using a third-party web UI where anyone from the community can contribute translations.
 Our application is available in three languages: English, Slovak, and Czech, with German and Spanish in translation.
 It is also fully modular, dividing the main module that contains the UI and modules performing the document manipulation.
-We implemented a module for signing using qualified electronic signatures that follow the European standards and should be compliant with the European law, and a module that allows signing using a scanned or drawn signature.
-The proposed software is a platform on which others can quickly build new ways to sign documents complying with different laws or to base further research.
-From the software engineering perspective, the implementation is robust, and we covered testing and automation in connection to Electron applications like ours.
+We implemented a module for signing using qualified electronic signatures that follow European standards and should be compliant with European law, and a module that allows signing using a scanned or drawn signature.
+The proposed software is a platform on which others can quickly build new ways of signing documents complying with different laws or basing further research.
+From a software engineering perspective, the implementation is robust, and we covered testing and automation in connection with Electron applications like ours.
 On the other hand, there is some room for improvement in flexibility and ease of setup of our software.
 We also created a supporting website that provides download links for all major desktop platforms, a help page, and general information on electronic signatures.
 Our project should be open to people from different countries, speaking different languages, and open for contributions from people with various skills - not just from programmers.
