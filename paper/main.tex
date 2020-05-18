@@ -610,9 +610,11 @@ During the verification, we construct a trusted list of root certificates from t
 Different lists for different countries are hosted individually on each countries servers.
 For better performance and reliability when there is an outage on those servers, we proxy requests through CloudFlare\footnote{CloudFlare is a CDN provider, see \url{https://www.cloudflare.com/}.} \pojem{Content Delivery Network} (CDN) to distribute cached files that are periodically downloaded and stored on the Amazon Web Services\footnote{Amazon Web Services is a cloud provider with various services, see \url{https://aws.amazon.com/what-is-aws/}.} (AWS) infrastructure using the AWS Lambda and AWS S3.
 
+\iffalse % This was not yet stable at the time of publishing
 We also support adding a visible signature for PDFs.
 This helps users to recognize it was digitally signed without a need to mention it in the document itself and provides information on who or when signed it.
 Labels are translated using the current language of the application as we assume this will be the language the receiver will most likely speak.
+\fi
 
 The backend currently supports configurable TSP URL, so any TSP following the RFC 3161 can be utilized as long as it does not require authentication.
 Authentication is usually done using a name and password or using a digital signature but is currently not supported.
@@ -725,7 +727,7 @@ All of the distributables originate from the Github as assets of a release, wher
 Each release is tied to a tag on the master branch, where each commit has to be signed using a recognized PGP key.
 In turn, we have some level of confidence source code used for the distributables comes from one of the authors.
 
-To improve on this further, we are doing a \pojem{code-signing} for each release using a trusted way for each platform.
+To improve on this further, we tried to do a \pojem{code-signing} for each release using a trusted way for each platform.
 On macOS, this means enrolling in the Apple Developer Program that requires an annual fee and installation of signing certificates.
 Additionally, it is necessary to \textit{notarize} the application for use on macOS.
 Notarization is an automated process required by Apple to prove that the application does not contain any malicious code and is properly signed and configured.
@@ -734,6 +736,7 @@ On modern versions of Windows, applications that are not code-signed can trigger
 Certification for individuals on the macOS seems to be fully automated, does not involve lengthy verification, and costs 99 USD a year.
 Certification on Windows is offered by various trusted third parties like DigiCert.com that we have used and involves lengthy, partially automated verification at a price starting from 60 USD a year.
 At the time of writing, there does not seem to be any service offering code-signing certificates to OSS for free.
+We were not able to finish the process on time for the publishing of this thesis - we feel like this process could be improved in the future for OSS.
 
 \subsection{Information and help}
 
