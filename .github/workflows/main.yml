@@ -9,15 +9,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+
     - name: Hugo setup
       uses: peaceiris/actions-hugo@v2.3.0
+
     - name: Build website
-      run: hugo --minify
+      run: hugo -b "https://thesis.duras.me/" --minify
+
     - name: Compile LaTeX thesis
       uses: xu-cheng/latex-action@master
       with:
         working_directory: paper
         root_file: main.tex
+
     - name: Copy PDF thesis
       run: cp paper/main.pdf public/draft.pdf
 
@@ -26,4 +30,5 @@ jobs:
       with:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        NETLIFY_DEPLOY_TO_PROD: true
         build_directory: public
