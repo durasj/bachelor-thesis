@@ -20,13 +20,10 @@ jobs:
         root_file: main.tex
     - name: Copy PDF thesis
       run: cp paper/main.pdf public/draft.pdf
-    - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@2.0.0
-      env:
-        FTP_SERVER: thesis.science.upjs.sk
-        FTP_USERNAME: jduras
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        METHOD: sftp
-        LOCAL_DIR: public
-        REMOTE_DIR: ~/public_html
-        ARGS: --delete
+
+    - name: Deploy to Netlify
+      uses: jsmrcaga/action-netlify-deploy@v1.2.0
+      with:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        build_directory: public
